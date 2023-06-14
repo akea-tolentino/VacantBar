@@ -10,10 +10,8 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
-  def self.find_by_credentials(credential, password)
-    if URI::MailTo::EMAIL_REGEXP.match?(credential)
-      user = User.find_by(email: credential)
-    end
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
     return user if user && user.authenticate(password)
     return nil
   end
