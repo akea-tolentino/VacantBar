@@ -1,15 +1,14 @@
 async function csrfFetch(url, options = {}) {
     // set options.method to 'GET' if there is no method
-    options.method = options.method || 'GET';
+    options.method ||= 'GET';
     // set options.headers to an empty object if there are no headers
-    options.headers = options.headers || {};
+    options.headers ||= {};
   
     // if the options.method is not 'GET', then set the "Content-Type" header to
     // "application/json" and the "X-CSRF-Token" header to the value of the 
     // "X-CSRF-Token" cookie
     if (options.method.toUpperCase() !== 'GET') {
-      options.headers['Content-Type'] =
-        options.headers['Content-Type'] || 'application/json';
+      options.headers['Content-Type'] ||= 'application/json';
       options.headers['X-CSRF-Token'] = sessionStorage.getItem('X-CSRF-Token');
     }
   
