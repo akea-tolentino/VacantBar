@@ -44,6 +44,16 @@ export const logout = userId => async (dispatch) => {
     dispatch(removeCurrentUser(userId));
   }
 
+  export const signup = user => async (dispatch) => {
+    let response = await csrfFetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify(user)
+    });
+    let data = await response.json();
+    sessionStorage.setItem('currentUser', JSON.stringify(data.user));
+    dispatch(receiveCurrentUser(data.user));
+};
+
   export const restoreSession = () => async dispatch => {
     const response = await csrfFetch("/api/session");
     storeCSRFToken(response);
