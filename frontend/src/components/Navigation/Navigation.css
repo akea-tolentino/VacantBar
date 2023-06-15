@@ -1,0 +1,13 @@
+li a {
+    margin:10px;
+    padding:10px;
+    font-size: 24px;
+    color: black;
+    list-style: none;
+    text-decoration: none;
+}
+
+ul.profile-dropdown li {
+    margin: auto;
+    padding: 10px;
+}

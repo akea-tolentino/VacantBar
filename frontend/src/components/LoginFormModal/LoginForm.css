@@ -7,15 +7,15 @@ form.login-form {
 }
 
 form.login-form input {
-    size: 40%;
+    size: 80%;
 }
 
 form.login-form button {
     display: inline-block;
     margin: 10px;
     padding: 1px 6px;
-    width: 100%;
-    height: 15%;
+    width: 90%;
+    height: 35%;
     background-color: #da3743;
     color: white;
     border: none;
@@ -27,4 +27,21 @@ form.login-form button {
 
 form.login-form button:hover {
     cursor: pointer;
+}
+
+div.login-message {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+div.login-message h1 {
+    font-weight: 700;
+    font-size: 18px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+div.login-message div {
+    text-align: left;
+    font-weight: 100;
 }
