@@ -20,7 +20,7 @@ ApplicationRecord.transaction do
       fname: 'Demo',
       lname: 'lition',
       username: 'Demo-lition', 
-      email: 'demo@user.io', 
+      email: 'demo@user.io',
       password: 'password'
     )
   

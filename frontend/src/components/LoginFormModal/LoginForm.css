@@ -35,13 +35,14 @@ div.login-message {
 }
 
 div.login-message h1 {
-    font-weight: 700;
-    font-size: 18px;
+    font-weight: 900;
+    font-size: 16px;
     text-align: left;
     margin-bottom: 10px;
 }
 
 div.login-message div {
     text-align: left;
-    font-weight: 100;
+    font-weight: 200;
+    font-size: 14px;
 }
