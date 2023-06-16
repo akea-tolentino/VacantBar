@@ -1,10 +1,20 @@
 class User < ApplicationRecord
   has_secure_password
 
+  # def valid_phone_number
+  #   number = :phone.split("-")
+  #   if (number.length != 3 || number[0].length != 3 || number[1].length != 3 || number[2].length != 4)
+  #     return false
+  #   end
+  # end
+
   validates :email, 
     uniqueness: true, 
     length: { in: 3..255 }, 
     format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :phone,
+    uniqueness: true,
+    length: { is: 12 }
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { in: 6..255 }, allow_nil: true
 
