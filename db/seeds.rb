@@ -3,37 +3,41 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+  # movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-ApplicationRecord.transaction do 
-    puts "Destroying tables..."
-    # Unnecessary if using `rails db:seed:replant`
-    User.destroy_all
+ # Create one user with an easy to remember username, email, and password:
+
+ User.create!(
+  fname: 'Demo',
+  lname: 'lition',
+  phone: '5555555555',
+  username: 'Demo-lition', 
+  email: 'demo@user.io',
+  password: 'password'
+)
+
+bars = Bar.create([
+  { name: "Dan Sung Sa", 
+  address: "2775 Telegraph Ave, Oakland, CA 94612", 
+  description: "Late-night, wood-clad eatery offering Korean street fare such as corn cheese & spicy fried chicken", 
+  bar_type: "korean-eatery", 
+  price: 2, 
+  capacity: 100 
+  }, 
+
+  { name: "Viridian", 
+  address: "2216 Broadway, Oakland, CA 94612", 
+  description: "Innovative cocktails & a menu of contemporary Asian-inspired food & desserts in a stylish locale.", 
+  bar_type: "cocktail", 
+  price: 2, 
+  capacity: 60 
+  }, 
   
-    puts "Resetting primary keys..."
-    # For easy testing, so that after seeding, the first `User` has `id` of 1
-    ApplicationRecord.connection.reset_pk_sequence!('users')
-  
-    puts "Creating users..."
-    # Create one user with an easy to remember username, email, and password:
-    User.create!(
-      fname: 'Demo',
-      lname: 'lition',
-      username: 'Demo-lition', 
-      email: 'demo@user.io',
-      password: 'password'
-    )
-  
-    # More users
-    10.times do 
-      User.create!({
-        fname: Faker::Internet.name,
-        lname: Faker::Internet.name,
-        username: Faker::Internet.unique.username(specifier: 3),
-        email: Faker::Internet.unique.email,
-        password: 'password'
-      }) 
-    end
-  
-    puts "Done!"
-  end
+  { name: "Hanshin Pocha", 
+  address: "4869 Telegraph Ave, Oakland, CA 94609", 
+  description: "Late-night, soju pub inspired by pocha, street vendors that originally served food out of covered wagons in Korea.", 
+  bar_type: "korean-eatery", 
+  price: 2, 
+  capacity: 100 
+  }
+])
