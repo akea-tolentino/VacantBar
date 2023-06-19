@@ -1,6 +1,14 @@
-li a {
-    margin:10px;
-    padding:10px;
+
+div.nav-container > ul {
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+    max-height: 84px;
+}
+
+li a.active {
+    margin: 20px ;
+    padding: 10px;
     font-size: 24px;
     color: black;
     list-style: none;
@@ -10,4 +18,56 @@ li a {
 ul.profile-dropdown li {
     margin: auto;
     padding: 10px;
+}
+
+ul li {
+    display: flex;
+}
+
+li.sign-buttons {
+display: flex;
+align-items: center;
+padding: 25px;
+}
+
+li.sign-buttons > button {
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #247f9e;
+    border: 0.0625rem solid #247f9e;
+    color: #ffffffcd;
+    font-size: 12px;
+    font-weight: 100;
+    margin: 0 12px;
+    border-radius: 0.1875rem;
+    cursor: pointer;
+    line-height: 2rem;
+    padding: 0 16px;
+    width: 77px;
+}
+
+svg.search {
+    width: 19px;
+    height: 19px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+svg.icon {
+    height: 19px;
+    width: 19px;
+    color: black;
+}
+
+svg#logo {
+    height: 30px;
+    width: 30px;
+    color: #247f9e;
+
+
+}
+
+button#user-profile {
+    background-color: white;
+    justify-content: center;
 }

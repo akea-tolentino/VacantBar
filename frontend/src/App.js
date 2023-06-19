@@ -1,6 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom/cjs/react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
+import { Switch } from "react-router-dom/cjs/react-router-dom";
 import Navigation from "./components/Navigation";
 
 function App() {
@@ -8,9 +7,7 @@ function App() {
     <>
       <Navigation />
         <Switch>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
+
         </Switch>
     </>
   );

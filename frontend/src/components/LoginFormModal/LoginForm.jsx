@@ -36,8 +36,8 @@ function LoginForm() {
             <div className="login-message">
                 <h1>Enter your email</h1>
                 <div>
-                    Enter the email associated with Your VacantBar account, <br />
-                    social login or new email.
+                    Enter the email and password associated <br />
+                    with your VacantBar account to sign in.
                 </div>
             </div>
             <label>
@@ -67,7 +67,7 @@ function LoginForm() {
                     </li>
                 )}
             </ul>
-            <button>Login</button>
+            <button>Sign in</button>
         </form>
     )
 }

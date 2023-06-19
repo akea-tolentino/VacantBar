@@ -4,12 +4,13 @@ import { signup } from "../../store/session";
 import { Redirect } from "react-router-dom/cjs/react-router-dom";
 import './SignupForm.css'
 
-const SignupFormPage = () => {
+const SignupForm = () => {
 
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [fname, setFName] = useState("");
     const [lname, setLName] = useState("");
+    const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,6 +26,7 @@ const SignupFormPage = () => {
                 fname: fname,
                 lname: lname,
                 email: email,
+                phone: phone,
                 password: password,
                 confirmPassword: confirmPassword
             }
@@ -40,19 +42,16 @@ const SignupFormPage = () => {
                 else if (data) setErrors([data]);
                 else setErrors([response.statusText]);
                 });
+        } else {
+            return setErrors(['Confirm Password field must be the same as the Password field']);
         }
-        return setErrors(['Confirm Password field must be the same as the Password nfield']);
     };
 
     return (
         <form onSubmit={handleSubmit} className="signup-form">
-            <ul>
-                { errors.map(error =>
-                    <li key={error}>
-                        {error}
-                    </li>
-                )}
-            </ul>
+            <div className="signup-message">
+                <h1>Create an account</h1>
+            </div>
             <label>
                 <input
                 type="text"
@@ -68,6 +67,15 @@ const SignupFormPage = () => {
                 value={lname}
                 onChange={e => setLName(e.target.value)}
                 placeholder="Last Name"
+                />
+            </label>
+            <br/>
+            <label>
+                <input
+                type="text"
+                value={phone}
+                onChange={e => setPhone(e.target.value)}
+                placeholder="Phone Number"
                 />
             </label>
             <br/>
@@ -98,9 +106,16 @@ const SignupFormPage = () => {
                 />
             </label>
             <br />
+            <ul>
+                { errors.map(error =>
+                    <li key={error}>
+                        {error}
+                    </li>
+                )}
+            </ul>
             <button>Sign Up</button>
         </form>
     )
 }
 
-export default SignupFormPage
+export default SignupForm
