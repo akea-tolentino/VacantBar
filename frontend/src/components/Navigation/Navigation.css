@@ -6,7 +6,7 @@ div.nav-container > ul {
     max-height: 84px;
 }
 
-li a.active {
+li a {
     margin: 20px ;
     padding: 10px;
     font-size: 24px;
@@ -15,9 +15,15 @@ li a.active {
     text-decoration: none;
 }
 
-ul.profile-dropdown li {
-    margin: auto;
-    padding: 10px;
+ul.profile-dropdown {
+    padding: 15px;
+    /* text-align: left; */
+    justify-content: left;
+    background-color: white
+}
+
+ul.profile-dropdown > li {
+    margin: 5px
 }
 
 ul li {
@@ -25,9 +31,9 @@ ul li {
 }
 
 li.sign-buttons {
-display: flex;
-align-items: center;
-padding: 25px;
+    display: flex;
+    align-items: center;
+    padding: 25px;
 }
 
 li.sign-buttons > button {
@@ -51,23 +57,24 @@ svg.search {
     height: 19px;
     padding-left: 10px;
     padding-right: 10px;
+    cursor: pointer;
 }
 
 svg.icon {
     height: 19px;
     width: 19px;
     color: black;
+    cursor: pointer;
 }
 
 svg#logo {
     height: 30px;
     width: 30px;
     color: #247f9e;
-
-
 }
 
-button#user-profile {
+button#logout {
     background-color: white;
-    justify-content: center;
+    color: #247f9e;
+    border: none;
 }

@@ -6,15 +6,26 @@ import { getBar, fetchBar } from '../../store/bars';
 export default function BarShow () {
     const dispatch = useDispatch();
     const { barId } = useParams();
-    const bar = useSelector(getBar(barId));
+    let bar = useSelector(getBar(barId));
 
+    if (bar === undefined) {
+        bar = {
+            name: '',
+            address: '',
+            barType: '',
+            price: '',
+            description: '',
+            capacity: ''
+        }
+    }
+    
     useEffect(() => {
         dispatch(fetchBar(barId))
     }, [dispatch, barId])
 
+
     return (
         <div>
-            <h2>BarShow</h2>
             <div className='bar-show-container'>
                 <h1>{bar.name}</h1>
                 <ul id='bar-show-info'>

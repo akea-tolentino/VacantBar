@@ -31,18 +31,16 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button id="user-profile" onClick={openMenu}>
-        <FaRegUser className="icon"/>
-      </button>
       {showMenu && (
         <ul className="profile-dropdown">
           <h2>Hello, {user.email}</h2>
           <li>{user.email}</li>
           <li>
-            <button onClick={logout}>Sign Out</button>
+            <button id="logout" onClick={logout}>Sign Out</button>
           </li>
         </ul>
       )}
+      <FaRegUser className="icon" id="user-profile" onClick={openMenu}/>
     </>
   );
 }
