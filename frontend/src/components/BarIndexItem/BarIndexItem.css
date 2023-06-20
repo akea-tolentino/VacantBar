@@ -8,3 +8,13 @@ ul#index-item-info li {
     margin-right: 3px;
     margin-top: 5px;
 }
+
+a.bar-name {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+div.index-item-container > li {
+    font-size: 11px;
+}

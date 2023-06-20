@@ -9,7 +9,7 @@ export default function BarIndexItem ({ bar }) {
         <div className='index-item-container'>
             <p>Photo goes here</p>
             <h2>
-                <NavLink to={`/bars/${bar.id}`}>
+                <NavLink to={`/bars/${bar.id}`} className="bar-name">
                 {bar.name}
                 </NavLink>
             </h2>
