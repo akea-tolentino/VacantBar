@@ -85,6 +85,10 @@ GEM
     crass (1.0.6)
     date (3.3.3)
     debug_inspector (1.1.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.12.0)
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
@@ -186,6 +190,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   byebug
+  dotenv-rails
   faker
   jbuilder
   pg (~> 1.1)

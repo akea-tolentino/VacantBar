@@ -30,3 +30,6 @@
 
 # Ignore public files
 /public
+
+# Ignore environment file
+/.env
