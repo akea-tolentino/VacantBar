@@ -13,11 +13,11 @@ export default function BarIndex () {
     }, [dispatch])
 
     return (
-        <>
+        <div className="bar-index-container">
             <h2>Bars Index</h2>
-            <ul>
+            <ul className="bar-index-container">
                 {bars.map(bar => <BarIndexItem key={bar.id} bar={bar} />)}
             </ul>
-        </>
+        </div>
     )
 }

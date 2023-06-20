@@ -4,16 +4,17 @@ class Api::BarsController < ApplicationController
     def index
         @bars = Bar.all
         if @bars
-            render 'api/bars/index'
+            render :index
+            # render 'api/bars/index'
         else
             render json: {errors: ['No Bars selected']}
         end
     end
 
     def show
-        @bar = Bar.find_by(:id)
+        @bar = Bar.find(params[:id])
         if @bar
-            render 'api/bars/show'
+            render :show
         else
             render json: {errors: ['Bar not found'] }
         end

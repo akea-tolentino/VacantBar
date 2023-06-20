@@ -28,6 +28,9 @@ module VacantBar
       key: '_auth_me_session',
       same_site: :lax, 
       secure: Rails.env.production?
+      initializer(:remove_extra_routes, after: :add_routing_paths) { |app|
+      app.routes_reloader.paths.delete_if {|path| path =~ /actionmailbox/ }
+    }
 
     # Configuration for the application, engines, and railties goes here.
     #

@@ -1,0 +1,10 @@
+ul#index-item-info {
+    display: flex;
+}
+
+ul#index-item-info li {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-top: 5px;
+}

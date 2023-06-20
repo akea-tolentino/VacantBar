@@ -1,0 +1,23 @@
+div.bar-index-container {
+    display: block;
+    margin-top: 48px;
+    padding: 0 32px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul.bar-index-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+div.bar-index-container h2 {
+    display: block;
+    font-size: 24px;
+    text-align: left;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
