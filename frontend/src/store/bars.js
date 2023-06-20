@@ -1,3 +1,5 @@
+import {createSelector} from 'reselect';
+
 export const RECEIVE_BAR = 'bars/RECEIVE_BAR';
 export const RECEIVE_BARS = 'bars/RECEIVE_BARS';
 export const REMOVE_BAR = 'bars/REMOVE_BAR';
@@ -27,8 +29,9 @@ export const getBar = (barId) => (state) => (
     state.bars ? state.bars[barId] : null
 )
 
-export const getBars = (state) => (
-    state.bars ? Object.values(state.bars) : []
+export const getBars = createSelector (
+    state => state.bars,
+    bars => (bars ? Object.values(bars) : [])
 )
 
 export const fetchBar = (barId) => async (dispatch) => {

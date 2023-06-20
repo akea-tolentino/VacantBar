@@ -38,7 +38,6 @@ function LoginForm() {
             email: "demo@user.io",
             password: "password"
         }
-        console.log("demo user", user);
         return dispatch(login(user))
             .catch(async (response) => {
                 let data;
@@ -92,8 +91,8 @@ function LoginForm() {
                     )}
                 </ul>
                 <button>Sign in</button>
+                <button onClick={handleDemoSubmit}>Demo User</button>
             </form>
-                <button onClick={handleDemoSubmit}>Sign in as Demo</button>
         </div>
 
     )

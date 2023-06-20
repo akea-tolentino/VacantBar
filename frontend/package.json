@@ -13,7 +13,8 @@
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
-    "redux-thunk": "^2.4.2"
+    "redux-thunk": "^2.4.2",
+    "reselect": "^4.1.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,7 +38,8 @@
     ]
   },
   "devDependencies": {
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "@babel/plugin-proposal-private-property-in-object":"7.21.11"
   },
   "proxy": "http://localhost:5001"
 }
