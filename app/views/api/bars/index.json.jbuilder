@@ -1,9 +1,6 @@
-json.array! @bars do |bar|
-    json.id bar.id
-    json.name bar.name
-    json.description bar.description
-    json.bar_type bar.bar_type
-    json.address bar.address
-    json.price bar.price
-    json.capacity bar.capacity
+
+@bars.each do |bar| 
+    json.set! bar.id do
+        json.extract! bar, :id, :name, :description, :bar_type, :address, :price, :capacity
+    end
 end

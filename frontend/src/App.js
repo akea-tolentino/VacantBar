@@ -9,7 +9,7 @@ function App() {
     <>
       <Navigation />
         <Switch>
-          <Route path={`/bars/:id`}
+          <Route path={`/bars/:barId`}
             component={BarShow} />
           <Route exact path='/'
             component={BarIndex} />

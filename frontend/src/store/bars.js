@@ -35,7 +35,7 @@ export const getBars = createSelector (
 )
 
 export const fetchBar = (barId) => async (dispatch) => {
-    const res = await fetch(`api/bars/${barId}`)
+    const res = await fetch(`/api/bars/${barId}`)
 
     if (res.ok) {
         const bar = await res.json();
@@ -44,7 +44,7 @@ export const fetchBar = (barId) => async (dispatch) => {
 }
 
 export const fetchBars = () => async (dispatch) => {
-    const res = await fetch(`api/bars`)
+    const res = await fetch(`/api/bars`)
 
     if (res.ok) {
         const bars = await res.json();
