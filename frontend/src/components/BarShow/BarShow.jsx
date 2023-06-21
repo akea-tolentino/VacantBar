@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBar, fetchBar } from '../../store/bars';
 import './BarShow.css';
+import Map from '../Map/Map.jsx';
+
 
 export default function BarShow () {
     const dispatch = useDispatch();
@@ -43,7 +45,8 @@ export default function BarShow () {
                     <h2>What people are saying</h2> {/* reviews */}
                 </div>
                 <div className='side-bar-container'> Side-bar Container goes here
-                    <div className='location-container'> Map Container goes here
+                    <div className='location-container'>
+                        <Map />
                         <p>{bar.address}</p>
                     </div>
             </div>
