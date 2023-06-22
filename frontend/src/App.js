@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 function App() {
   return (
     <>
+      {/* <script src={`https://maps.googleapis.com/maps/api/js?key=${process.env.GMAPS_API_BROWSER_KEY}`} defer></script> */}
       <Navigation />
         <Switch>
           <Route path={`/bars/:barId`}
