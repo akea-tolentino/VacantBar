@@ -1,24 +1,27 @@
-import React from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-
-
+import React, { useEffect, useState } from 'react';
+import { GoogleMap, Marker } from '@react-google-maps/api';
+import './Map.css';
 
 const containerStyle = {
-  width: '80%',
-  height: '15vh'
+    width: '100%',
+    height: '100%'
 };
 
-const center = {
-  lat: -33.8688,
-  lng: 151.2093
-};
 
-export default function Map () {
+export default function Map ({ geolocation }) {
+    const [center, setCenter] = useState(null);
+    
+    useEffect(() => {
+        if (geolocation) {
+            setCenter(geolocation);
+        }
+    }, [geolocation]);
+
   return (
-    <LoadScript googleMapsApiKey="AIzaSyByu_D9VCS98NR9SqLjwTxuoiHoVZGEuP4">
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={17} disableDefaultUI={true}>
-        <Marker position={center} />
-      </GoogleMap>
-    </LoadScript>
+        <div className='map-container'>
+            <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={17} disableDefaultUI={true}>
+                <Marker position={center} />
+            </GoogleMap>
+        </div>
   );
 }

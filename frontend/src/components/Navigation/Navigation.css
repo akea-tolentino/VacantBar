@@ -15,14 +15,29 @@ li a {
     text-decoration: none;
 }
 
-ul.profile-dropdown {
+.dropdown {
+    position: fixed;
+    top: 85px;
+    border-radius: 4px;
+    background-color: white;
     padding: 15px;
-    /* text-align: left; */
+    box-shadow: 0 2px 4px #2d333f33;
+
+}
+
+.profile {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+ul.dropdown {
+    padding: 15px;
     justify-content: left;
     background-color: white
 }
 
-ul.profile-dropdown > li {
+ul.dropdown > li {
     margin: 5px
 }
 

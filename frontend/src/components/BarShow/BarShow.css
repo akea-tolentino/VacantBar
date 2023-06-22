@@ -1,17 +1,19 @@
 
 div.bar-show-container {
-    display: inline-flex;
-    justify-content: space-evenly;
-    margin-left: 10%;
-    margin-right: 10%;
-    flex-wrap: wrap;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    margin-top: -51px;
+    position: relative;
 }
 
 div.bar-show-page {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    width: 35%;
+    background-color: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-right: 32px;
+    padding: 0 16px calc(128px - 0.25rem);
+    width: 40rem;
 }
 
 div.bar-show-page > h1 {
@@ -22,9 +24,8 @@ div.bar-show-page > h1 {
 }
 
 div.side-bar-container {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
+    width: 20rem;
+    display: block;
 }
 
 div.show-photos-header {
@@ -32,6 +33,7 @@ div.show-photos-header {
     justify-items: center;
     align-items: baseline;
     height: 250px;
+    background-color: cadetblue;
 }
 
 ul#bar-show-info {
@@ -47,4 +49,39 @@ div.show-tags {
 
 div.bar-show-page > p {
     text-align: center;
+}
+
+div.location-container {
+    display: inline-flex;
+    justify-content: space-around;
+    width: 95%;
+}
+
+section.location-container {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px #2d333f33;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 12px;
+}
+
+p#address {
+    margin-top: 10px;
+}
+
+div.reservations-container {
+    width: 100%;
+    height: 315px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px #2d333f33;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+    z-index: 11;
 }

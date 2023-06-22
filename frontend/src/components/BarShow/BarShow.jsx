@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBar, fetchBar } from '../../store/bars';
@@ -10,6 +10,8 @@ export default function BarShow () {
     const dispatch = useDispatch();
     const { barId } = useParams();
     let bar = useSelector(getBar(barId));
+    const [geolocation, setGeolocation] = useState(null);
+    const geocoder = new window.google.maps.Geocoder();
 
     useEffect(() => {
         dispatch(fetchBar(barId))
@@ -26,6 +28,20 @@ export default function BarShow () {
             capacity: ''
         }
     }
+
+    useEffect(() => {
+        console.log(bar.address);
+        console.log("2775 Telegraph Ave, Oakland, CA 94612");
+        const address = bar.address;
+        geocoder.geocode({ address: address }, (results, status) => {
+        if (status === window.google.maps.GeocoderStatus.OK) {
+            const location = results[0].geometry.location;
+            setGeolocation({
+                lat: location.lat(),
+                lng: location.lng()
+             });
+        }});
+    }, [bar.address]);
 
 
     return (
@@ -44,11 +60,14 @@ export default function BarShow () {
                     <h2>Photos</h2> {/* Photos */}
                     <h2>What people are saying</h2> {/* reviews */}
                 </div>
-                <div className='side-bar-container'> Side-bar Container goes here
+                <div className='side-bar-container'>
+                    <div className='reservations-container'>Reservations go here</div>
+                    <section className='location-container'>
                     <div className='location-container'>
-                        <Map />
-                        <p>{bar.address}</p>
+                            { geolocation ? <Map geolocation={geolocation}/> : <p>Loading...</p> }
                     </div>
+                        <p id='address'>{bar.address}</p>
+                    </section>
             </div>
             </div>
         </>

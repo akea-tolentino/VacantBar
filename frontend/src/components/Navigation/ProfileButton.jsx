@@ -31,16 +31,20 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      {showMenu && (
-        <ul className="profile-dropdown">
-          <h2>Hello, {user.email}</h2>
-          <li>{user.email}</li>
-          <li>
-            <button id="logout" onClick={logout}>Sign Out</button>
-          </li>
-        </ul>
-      )}
-      <FaRegUser className="icon" id="user-profile" onClick={openMenu}/>
+      <div className="profile">
+        <FaRegUser className="icon" id="user-profile" onClick={openMenu}/>
+        {showMenu && (
+          <div className="dropdown">
+          <ul>
+            <h2>Hello, {user.email}</h2>
+            <li>{user.email}</li>
+            <li>
+              <button id="logout" onClick={logout}>Sign Out</button>
+            </li>
+          </ul>
+          </div>
+        )}
+      </div>
     </>
   );
 }
