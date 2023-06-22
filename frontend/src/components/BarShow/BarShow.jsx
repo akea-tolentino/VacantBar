@@ -25,7 +25,8 @@ export default function BarShow () {
             barType: '',
             price: '',
             description: '',
-            capacity: ''
+            capacity: '',
+            images: []
         }
     }
 
@@ -57,7 +58,12 @@ export default function BarShow () {
                     </ul>
                     <div className='show-tags'>tags go here</div>
                     <p>{bar.description}</p>
-                    <h2>Photos</h2> {/* Photos */}
+                    <h2>Photos</h2> 
+                    {/* <ul>
+                        {bar.imageUrls.map(imageUrl => (
+                            <img key={imageUrl} src={imageUrl} alt="" />
+                        ))}
+                    </ul> */}
                     <h2>What people are saying</h2> {/* reviews */}
                 </div>
                 <div className='side-bar-container'>

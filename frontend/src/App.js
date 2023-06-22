@@ -3,15 +3,19 @@ import { Route, Switch } from "react-router-dom/cjs/react-router-dom";
 import BarIndex from "./components/BarIndex/BarIndex";
 import BarShow from "./components/BarShow/BarShow";
 import Navigation from "./components/Navigation";
+import { Wrapper } from "@googlemaps/react-wrapper";
+
+const apiKey = process.env.REACT_APP_GMAPS_API_BROWSER_KEY;
 
 function App() {
   return (
     <>
-      {/* <script src={`https://maps.googleapis.com/maps/api/js?key=${process.env.GMAPS_API_BROWSER_KEY}`} defer></script> */}
       <Navigation />
         <Switch>
+        <Wrapper apiKey={apiKey}>
           <Route path={`/bars/:barId`}
             component={BarShow} />
+        </Wrapper>
           <Route exact path='/'
             component={BarIndex} />
         </Switch>
