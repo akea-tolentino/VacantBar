@@ -23,6 +23,6 @@ class Api::BarsController < ApplicationController
     private
 
     def bar_params
-        params.require(:bar).permit(:name, :address, :description, :type, :price, :capacity, :image_urls)
+        params.require(:bar).permit(:name, :address, :description, :type, :price, :capacity, images: [])
     end
 end

@@ -69,8 +69,11 @@ section.location-container {
 }
 
 p#address {
-    margin-top: 10px;
-}
+        margin-top: 10px;
+        padding-bottom: 10px;
+        font-size: 13px;
+        color: #da3743;
+    }
 
 div.reservations-container {
     width: 100%;

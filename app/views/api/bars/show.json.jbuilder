@@ -6,3 +6,5 @@ json.extract! @bar,
 :address, 
 :price, 
 :capacity
+
+json.imageUrls @bar.images.map { |file| file.url }
