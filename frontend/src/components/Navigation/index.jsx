@@ -26,18 +26,24 @@ function Navigation() {
   }
 
   return (
-    <div className='nav-container'>
-      <ul>
-        <li>
-          {/* <MdTableBar id='logo'/> */}
-          <NavLink exact to="/"><MdTableBar id='logo' />VacantBar{/* replace with App Icon */}</NavLink>
+      <ul className='nav-container'>
+        <li className='logo'>
+          <NavLink className="home-link" exact to="/">
+            <MdTableBar />
+            <span >
+              VacantBar
+            </span>
+          </NavLink>
         </li>
-        <li className='sign-buttons'>
-          {sessionLinks}
-          <LuSearch className='search'/>
-        </li>
+        <ul className='sign-buttons-container'>
+          <li className='sign-links-container'>
+            {sessionLinks}
+          </li>
+          <li className='nav-search-container'>
+            <LuSearch className='search'/>
+          </li>
+        </ul>
       </ul>
-    </div>
   );
 }
 

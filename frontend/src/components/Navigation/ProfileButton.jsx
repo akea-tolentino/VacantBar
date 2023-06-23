@@ -32,17 +32,13 @@ function ProfileButton({ user }) {
   return (
     <>
       <div className="profile">
-        <FaRegUser className="icon" id="user-profile" onClick={openMenu}/>
+        <FaRegUser id="user-profile" onClick={openMenu}/>
         {showMenu && (
-          <div className="dropdown">
-          <ul>
-            <h2>Hello, {user.email}</h2>
-            <li>{user.email}</li>
-            <li>
+            <ul className="dropdown">
+              <h2>Hello, {user.email}</h2>
+              <li>{user.email}</li>
               <button id="logout" onClick={logout}>Sign Out</button>
-            </li>
-          </ul>
-          </div>
+            </ul>
         )}
       </div>
     </>

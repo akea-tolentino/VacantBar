@@ -1,4 +1,119 @@
+.nav-container {
+    display: flex;
+    width: 100vw;
+    height: 12vh;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.logo {
+    display: flex;
+    width: 20%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    width: 100%;
+    font-size: 23px;
+    color: black;
+    border-right: 1px solid rgba(128, 128, 128, 0.078);
+    height: 50%;
+    padding-right: 2px;
+}
+
+.home-link > svg {
+    font-size: 36px;
+    color: #247f9e;
+    padding-right: 2px;
+}
+
+ul.sign-buttons-container {
+    display: flex;
+    width: 15%;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3vw;
+}
+
+.nav-search-container {
+    display: flex;
+    width: 6vw;
+    border-left: 1px solid rgba(128, 128, 128, 0.078);
+    justify-content: center;
+    align-items: center;
+
+}
+
+svg.search {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.sign-links-container {
+    display: flex;
+    width: 18vw;
+    justify-content: right;
+    padding-right: 1vw;
+}
+
+.sign-links-container > button {
+    background-color: #247f9e;
+    box-sizing: border-box;
+    background-color: #247f9e;
+    border: 0.0625rem solid #247f9e;
+    color: #ffffffcd;
+    font-size: 12px;
+    font-weight: 100;
+    border-radius: 0.1875rem;
+    cursor: pointer;
+    line-height: 2rem;
+    padding: 0 12px;
+    margin-right: 6px;
+}
+
+svg#user-profile {
+    height: 19px;
+    width: 19px;
+    color: black;
+    cursor: pointer;
+}
+
+ul.dropdown > button#logout {
+    background-color: white;
+    color: #247f9e;
+    border: none;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-evenly;
+    position: fixed;
+    top: 8vh;
+    right: 7.5vw;
+    background-color: white;
+    padding: 21px;
+    box-shadow: 0 2px 4px #2d333f33;
+    width: 20vw;
+    height: 23vh;
+    transition: transform .15s ease-out,
+        opacity .15s ease-out,
+            position .15s ease-out,
+            max-height 0s;
+    border-radius: 4px;
+    
+}
+
+/* 
 div.nav-container > ul {
     display: flex;
     margin-top: 15px;
@@ -92,4 +207,4 @@ button#logout {
     background-color: white;
     color: #247f9e;
     border: none;
-}
+} */
