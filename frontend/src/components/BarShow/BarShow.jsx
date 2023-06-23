@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBar, fetchBar } from '../../store/bars';
 import './BarShow.css';
 import Map from '../Map/Map.jsx';
+import { MdLocationOn } from "react-icons/md";
 
 
 export default function BarShow () {
@@ -78,10 +79,13 @@ export default function BarShow () {
                     <div className='side-bar-container'>
                         <div className='reservations-container'>Reservations go here</div>
                         <section className='location-container'>
-                        <div className='location-container'>
-                                { geolocation ? <Map geolocation={geolocation}/> : <p>Loading...</p> }
-                        </div>
-                            <p id='address'>{bar.address}</p>
+                            <div className='location-container'>
+                                    { geolocation ? <Map geolocation={geolocation}/> : <p>Loading...</p> }
+                            </div>
+                            <p id='address'>
+                                <MdLocationOn />
+                                {bar.address}
+                            </p>
                         </section>
                 </div>
             </div> 
