@@ -5,7 +5,7 @@ import BarShow from "./components/BarShow/BarShow";
 import Navigation from "./components/Navigation";
 import { Wrapper } from "@googlemaps/react-wrapper";
 
-const apiKey = process.env.REACT_APP_GMAPS_API_BROWSER_KEY;
+const apiKey = process.env.REACT_APP_GMAPS_API_SERVER_KEY;
 
 function App() {
   return (
