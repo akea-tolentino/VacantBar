@@ -13,8 +13,32 @@ a.bar-name {
     text-decoration: none;
     color: black;
     font-size: 18px;
+    width: 100%;
+    height: 100%;
+}
+
+div.index-item-container {
+    width: 234px;
+    height: 304px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px #2d333f33;
+
 }
 
 div.index-item-container > li {
     font-size: 11px;
+}
+
+div.index-item-photo {
+    width: 100%;
+    height: 40%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.index-item-photo img {
+    height: 100%;
+    width: 100%;
 }

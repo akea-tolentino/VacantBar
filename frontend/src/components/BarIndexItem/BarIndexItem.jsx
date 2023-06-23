@@ -7,18 +7,22 @@ export default function BarIndexItem ({ bar }) {
 
     return (
         <div className='index-item-container'>
-            <p>Photo goes here</p>
-            <h2>
-                <NavLink to={`/bars/${bar.id}`} className="bar-name">
-                {bar.name}
-                </NavLink>
-            </h2>
-                <li>reviews coming soon</li>
-            <ul id='index-item-info'>
-                <li>address metro component</li> 
-                <li>{bar.barType}</li>
-                <li>{bar.price}</li>
-            </ul>
+            <NavLink to={`/bars/${bar.id}`} className="bar-name">
+                <div className='index-item-photo'>
+                    {bar.imageUrls !== undefined ? 
+                        <img key={bar.imageUrls[0]} src={bar.imageUrls[0]} alt="" /> : null
+                    }
+                </div>
+                <h2>
+                    {bar.name}
+                </h2>
+                    <li>reviews coming soon</li>
+                <ul id='index-item-info'>
+                    <li>address metro component</li> 
+                    <li>{bar.barType}</li>
+                    <li>{bar.price}</li>
+                </ul>
+            </NavLink>
         </div>
     )
 }
