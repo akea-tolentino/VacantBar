@@ -29,11 +29,10 @@ div.side-bar-container {
 }
 
 div.show-photos-header {
-    display: grid;
+    display: block;
     justify-items: center;
     align-items: baseline;
-    height: 250px;
-    background-color: cadetblue;
+    height: 460px;
 }
 
 ul#bar-show-info {
@@ -87,4 +86,32 @@ div.reservations-container {
     align-items: center;
     position: sticky;
     z-index: 11;
+}
+
+ul.bar-image img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 15px;
+}
+
+.bar-image {
+    display: flex;
+    flex-flow: column;
+}
+
+div.show-photos-header img{
+    width: 100%;
+    
+}
+
+.show-photos-header {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.photos-container {
+    display: flex;
+    width: 100%;
 }
