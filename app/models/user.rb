@@ -8,6 +8,15 @@ class User < ApplicationRecord
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { in: 6..255 }, allow_nil: true
 
+  has_many :reviews_written,
+  foreign_key: :author_id,
+  class_name: :Review,
+  dependent: :destroy
+
+  has_many :bars_reviewed,
+  through: :reviews_written,
+  source: :bar
+
   before_validation :ensure_session_token
 
   def self.find_by_credentials(email, password)

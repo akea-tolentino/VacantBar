@@ -8,3 +8,7 @@ json.extract! @bar,
 :capacity
 
 json.imageUrls @bar.images.map { |file| file.url }
+
+json.reviews do
+    json.partial! 'reviews/review', review: @bar.review
+end

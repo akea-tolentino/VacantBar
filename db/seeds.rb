@@ -4,6 +4,7 @@ User.destroy_all
 Bar.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('users')
 ApplicationRecord.connection.reset_pk_sequence!('bars')
+ApplicationRecord.connection.reset_pk_sequence!('reviews')
 
  User.create!(
   fname: 'Demo',
@@ -13,6 +14,52 @@ ApplicationRecord.connection.reset_pk_sequence!('bars')
   email: 'demo@user.io',
   password: 'password'
 )
+
+ User.create!(
+  fname: 'New',
+  lname: 'User',
+  phone: '5555555555',
+  username: 'New User', 
+  email: 'new@user.io',
+  password: 'password'
+)
+
+ User.create!(
+  fname: 'Old',
+  lname: 'User',
+  phone: '5555555555',
+  username: 'Old User', 
+  email: 'old@user.io',
+  password: 'password'
+)
+
+ User.create!(
+  fname: 'Akea',
+  lname: 'Tolentino',
+  phone: '5555555555',
+  username: 'akea-tolentino', 
+  email: 'akea@user.io',
+  password: 'password'
+)
+
+ User.create!(
+  fname: 'Jane',
+  lname: 'Doe',
+  phone: '5555555555',
+  username: 'jane-doe', 
+  email: 'jane@user.io',
+  password: 'password'
+)
+
+ User.create!(
+  fname: 'John',
+  lname: 'Smith',
+  phone: '5555555555',
+  username: 'john-smith', 
+  email: 'john@user.io',
+  password: 'password'
+)
+
 
 bar1 = Bar.create(
   name: "Dan Sung Sa", 
@@ -107,4 +154,67 @@ bar3.images.attach(io: URI.open(
 bar3.images.attach(io: URI.open(
   "https://vacant-bar-seeds.s3.us-west-1.amazonaws.com/hanshin-pocha/hanshin_pocha_4.jpeg"),
   filename: "hanshin_pocha_4.jpg"
+  )
+
+  Review.create!(
+    author_id: 1,
+    bar_id: 1,
+    body: "Place didn't make a good cocktail. Too dark.",
+    rating: 1
+  )
+
+  Review.create!(
+    author_id: 1,
+    bar_id: 2,
+    body: "Cocktails were great but overpriced. Too cramped. ",
+    rating: 2
+  )
+
+  Review.create!(
+    author_id: 1,
+    bar_id: 3,
+    body: "Cocktails weren't great. Food was too spicy. Too loud.",
+    rating: 1
+  )
+
+  Review.create!(
+    author_id: 3,
+    bar_id: 1,
+    body: "Soju cocktails were excellent. Food was comforting.",
+    rating: 5
+  )
+
+  Review.create!(
+    author_id: 3,
+    bar_id: 2,
+    body: "Cocktails were interesting and fun. Food was innovative and tasty.",
+    rating: 5
+  )
+
+  Review.create!(
+    author_id: 3,
+    bar_id: 3,
+    body: "Great selection of Korean liquor. Food was tasty, but a bit spicy. Large portions meant for sharing.",
+    rating: 4
+  )
+
+  Review.create!(
+    author_id: 2,
+    bar_id: 1,
+    body: "Drinks were tasty but a bit sugary. Food was tasty but a bit messy.",
+    rating: 3
+  )
+
+  Review.create!(
+    author_id: 2,
+    bar_id: 2,
+    body: "Expensive, but arguably worth the price. Cocktails were tasty. Food was yummy.",
+    rating: 4
+  )
+
+  Review.create!(
+    author_id: 2,
+    bar_id: 3,
+    body: "Drinks were priced at a good value. Food was spicy and quite messy.",
+    rating: 3
   )
