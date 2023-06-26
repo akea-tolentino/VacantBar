@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBar, fetchBar } from '../../store/bars';
 import './BarShow.css';
@@ -51,11 +51,16 @@ export default function BarShow () {
                 <img key={bar.imageUrls[0]} src={bar.imageUrls[0]} alt="" /> : null
             }
             </header>
+            <section className='directory'>
+                <li><a to=".bar-show-page">Overview</a></li>
+                <li><a to=".photos-container">Photos</a></li>
+                <li><a to=".reviews-container">Reviews</a></li>
+            </section>
             <div className='bar-show-page'>
                 <section className='bar-details-container'>
                     <h1 className='bar-header'>{bar.name}</h1>
                     <ul className='bar-show-info'>
-                        <li> Bar Neighborhood goes here </li> 
+                        <li> {bar.address.split(",")[1]} </li> 
                         <li>{bar.barType}</li>
                         <li>{bar.price}</li>
                     </ul>
@@ -66,11 +71,11 @@ export default function BarShow () {
                     <ul className='photos-container'>
                         {Array.from(bar.imageUrls).map((imageUrl, index) => (
                             index === 0 ? null :
-                        <img key={imageUrl} src={imageUrl} alt="" />
+                            <img key={imageUrl} src={imageUrl} alt=""/>
                         ))}
                     </ul> 
                             : null }
-                    <h2>What people are saying</h2> {/* reviews */}
+                    <h2>What people are saying</h2>
                     <section className='reviews-container'>
                             <ReviewsIndex bar={bar} />
                     </section>

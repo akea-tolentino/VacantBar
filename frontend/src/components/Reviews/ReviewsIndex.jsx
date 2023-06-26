@@ -11,7 +11,6 @@ export default function ReviewsIndex ({ bar }) {
         dispatch(fetchReviews(reviews))
     }, [])
 
-
     return (
         <ul>
             {reviews.map(review => <ReviewItem review={review} key={review.id} />)}

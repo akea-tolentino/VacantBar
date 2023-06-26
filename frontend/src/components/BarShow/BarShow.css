@@ -1,6 +1,7 @@
 .bar-show-page-wrapper {
     height: 90vh;
     width: 100vw;
+    position:relative;
 }
 
 .show-photos-header {
@@ -15,6 +16,21 @@
 .show-photos-header > img {
     width: 100%;
     height: 100%;
+}
+
+.directory {
+    position: sticky;
+    display: flex;
+    width: 40%;
+    height: 5vh;
+    list-style: none;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: -5vh;
+    margin-left: 10vw;
+    background-color: #fff;
+    border-radius: 4px 4px 0 0;
+    font-size: 11px;
 }
 
 .bar-show-page {
@@ -34,6 +50,8 @@
     justify-content: center;
     background-color: #fff;
     border-radius: 4px;
+    margin-top: 10vh;
+    padding: 15px;
 }
 
 .bar-show-info {
@@ -46,15 +64,16 @@
 .bar-description {
     display: flex;
     text-align: center;
-    /* justify-content: center;
-    align-content: center; */
+    font-size: 16px;
+    padding: 15px;
 }
 
 .bar-details-container > h1 {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 800;
-    margin-top: 28px;
-    margin-bottom: 28px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: 2vw;
 }
 
 .photos-container {
@@ -85,7 +104,8 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 20%
+    width: 20%;
+    margin-top: -5vh; 
 }
 
 .reservations-container {
@@ -99,7 +119,6 @@
     justify-content: space-around;
     align-items: center;
     position: sticky;
-    /* z-index: 11; */
 }
 
 .location-container {
