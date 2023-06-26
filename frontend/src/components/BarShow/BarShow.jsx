@@ -5,7 +5,7 @@ import { getBar, fetchBar } from '../../store/bars';
 import './BarShow.css';
 import Map from '../Map/Map.jsx';
 import { MdLocationOn } from "react-icons/md";
-
+import ReviewsIndex from '../Reviews/ReviewsIndex';
 
 export default function BarShow () {
     const dispatch = useDispatch();
@@ -72,7 +72,7 @@ export default function BarShow () {
                             : null }
                     <h2>What people are saying</h2> {/* reviews */}
                     <section className='reviews-container'>
-                        Reviews go here
+                            <ReviewsIndex bar={bar} />
                     </section>
                 </section>
                 <section className='side-bar-container'>

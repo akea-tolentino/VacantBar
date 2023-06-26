@@ -61,18 +61,24 @@
     display: flex;
     flex-flow: wrap;
     width: 100%;
-    height: 50%
+    height: 50%;
+    flex-wrap: wrap;
+    /* align-content: space-around; */
+    /* justify-content: flex-start; */
 }
 
 .photos-container img {
-    height: 90%;
-    width: 45%;
-    padding: 5px;
+    height: 44%;
+    width: 25%;
+    padding: 3px;
 }
 
 .reviews-container {
     height: 40%;
-    width: 70%
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
 }
 
 .side-bar-container {
@@ -114,3 +120,7 @@
     color: #da3743;
 }
 
+.bar-details-container h2 {
+    font-size: 22px;
+    padding: 5px;
+}

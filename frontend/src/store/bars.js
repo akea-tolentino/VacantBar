@@ -1,4 +1,5 @@
 import {createSelector} from 'reselect';
+import { receiveReviews } from './reviews';
 
 export const RECEIVE_BAR = 'bars/RECEIVE_BAR';
 export const RECEIVE_BARS = 'bars/RECEIVE_BARS';
@@ -38,8 +39,9 @@ export const fetchBar = (barId) => async (dispatch) => {
     const res = await fetch(`/api/bars/${barId}`)
 
     if (res.ok) {
-        const bar = await res.json();
-        dispatch(receiveBar(bar));
+        const data = await res.json();
+        dispatch(receiveBar(data.bar));
+        dispatch(receiveReviews(data.reviews));
     }
 }
 

@@ -3,7 +3,7 @@ class Api::ReviewsController < ApplicationController
     before_action :require_logged_in, only: [:create, :update, :destroy]
 
     def index
-        @reviews = Bar.all
+        @reviews = Review.includes(:bar).where("bar.id" == "review.bar_id")
         if @reviews
             render :index
         else
@@ -14,7 +14,7 @@ class Api::ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params);
         if @review.save
-            render :index
+            render '/api/reviews'
         else
             render json: {errors: ['Review not saved']}
         end
@@ -23,7 +23,7 @@ class Api::ReviewsController < ApplicationController
     def update
         @review = Review.find(params[:id])
         if @review.update(review_params)
-            render :index
+            render "api/reviews/#{@review.id}"
         else
             render json: {errors: ['Update not saved']}
         end
@@ -32,12 +32,12 @@ class Api::ReviewsController < ApplicationController
     def destroy
         @review = Review.find(params[:id])
         @review.destroy
-        render :index
+        render "api/reviews/#{@review.id}"
     end
 
     private
     
     def review_params
-        params.require(:review).permit(:rating, :text, :created_at, :updated_at)
+        params.require(:review).permit(:rating, :text, :created_at, :updated_at, :bar_id, :author_id)
     end
 end

@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function BarIndexItem ({ bar }) {
 
+
     return (
         <div className='index-item-container'>
             <NavLink to={`/bars/${bar.id}`} className="bar-name">
