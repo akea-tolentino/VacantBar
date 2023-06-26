@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBar, fetchBar } from '../../store/bars';
 import './BarShow.css';
 import Map from '../Map/Map.jsx';
 import { MdLocationOn } from "react-icons/md";
 import ReviewsIndex from '../Reviews/ReviewsIndex';
+import ReviewsFormModal from '../Reviews/ReviewsFormModal';
+import LoginFormModal from '../LoginFormModal';
 
 export default function BarShow () {
     const dispatch = useDispatch();
@@ -13,6 +15,7 @@ export default function BarShow () {
     let bar = useSelector(getBar(barId));
     const [geolocation, setGeolocation] = useState(null);
     const geocoder = new window.google.maps.Geocoder();
+    const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
         dispatch(fetchBar(barId))
@@ -52,9 +55,9 @@ export default function BarShow () {
             }
             </header>
             <section className='directory'>
-                <li><a to=".bar-show-page">Overview</a></li>
-                <li><a to=".photos-container">Photos</a></li>
-                <li><a to=".reviews-container">Reviews</a></li>
+                <li><a href=".bar-show-page">Overview</a></li>
+                <li><a href=".photos-container">Photos</a></li>
+                <li><a href=".reviews-container">Reviews</a></li>
             </section>
             <div className='bar-show-page'>
                 <section className='bar-details-container'>
@@ -77,7 +80,14 @@ export default function BarShow () {
                             : null }
                     <h2>What people are saying</h2>
                     <section className='reviews-container'>
-                            <ReviewsIndex bar={bar} />
+                        {sessionUser && barId ? 
+                        <ReviewsFormModal barId={barId} /> :
+                        <div>
+                            <p>Sign in to leave a review.</p>
+                            <LoginFormModal />
+                        </div>
+                        }
+                        <ReviewsIndex bar={bar} />
                     </section>
                 </section>
                 <section className='side-bar-container'>

@@ -13,8 +13,10 @@ class Api::ReviewsController < ApplicationController
 
     def create
         @review = Review.new(review_params);
+        @review.author_id = current_user.id
+        @review.bar_id = params[:bar_id]
         if @review.save
-            render '/api/reviews'
+            render :show
         else
             render json: {errors: ['Review not saved']}
         end
@@ -38,6 +40,6 @@ class Api::ReviewsController < ApplicationController
     private
     
     def review_params
-        params.require(:review).permit(:rating, :text, :created_at, :updated_at, :bar_id, :author_id)
+        params.require(:review).permit(:rating, :body, :created_at, :updated_at, :bar_id, :author_id)
     end
 end

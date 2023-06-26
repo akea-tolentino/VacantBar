@@ -1,7 +1,7 @@
 .bar-show-page-wrapper {
     height: 90vh;
     width: 100vw;
-    position:relative;
+    position: relative;
 }
 
 .show-photos-header {
@@ -105,7 +105,8 @@
     flex-direction: column;
     height: 100%;
     width: 20%;
-    margin-top: -5vh; 
+    margin-top: -5vh;
+    position: relative;
 }
 
 .reservations-container {

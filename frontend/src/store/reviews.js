@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import csrfFetch from './csrf';
 
 export const RECEIVE_REVIEW = 'reviews/RECEIVE_REVIEW';
 export const RECEIVE_REVIEWS = 'reviews/RECEIVE_REVIEWS';
@@ -52,12 +53,24 @@ export const fetchReviews = () => async (dispatch) => {
     }
 }
 
-export const createReviews = (review) => async (dispatch) => {
-    const res = await fetch(`/api/reviews`, {
+// export const createReview = (review) => async (dispatch) => {
+//     const res = await fetch(`/api/reviews`, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(review)
+//     })
+
+//     if (res.ok) {
+//         const newReview = await res.json();
+//         dispatch(receiveReview(newReview));
+//     }
+// }
+
+export const createReview = (review) => async (dispatch) => {
+    const res = await csrfFetch(`/api/reviews`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
         body: JSON.stringify(review)
     })
 
@@ -67,7 +80,7 @@ export const createReviews = (review) => async (dispatch) => {
     }
 }
 
-export const updateReviews = (review) => async (dispatch) => {
+export const updateReview = (review) => async (dispatch) => {
     const res = await fetch(`/api/reviews/${review.id}`, {
         method: 'PATCH',
         headers: {
