@@ -79,16 +79,17 @@ export default function BarShow () {
                     </ul> 
                             : null }
                     <h2>What people are saying</h2>
-                    <section className='reviews-container'>
                         {sessionUser && barId ? 
-                        <ReviewsFormModal barId={barId} /> :
-                        <div>
-                            <p>Sign in to leave a review.</p>
-                            <LoginFormModal />
-                        </div>
-                        }
+                    <section className='reviews-container'>
+                        <ReviewsFormModal barId={barId} />
+                        <ReviewsIndex currentUser={sessionUser} bar={bar} />
+                    </section> :
+                    <section className='reviews-container'>
+                        <p>Sign in to leave a review.</p>
+                        <LoginFormModal />
                         <ReviewsIndex bar={bar} />
                     </section>
+                        }
                 </section>
                 <section className='side-bar-container'>
                     <article className='reservations-container'>

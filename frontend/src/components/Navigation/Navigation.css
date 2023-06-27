@@ -110,6 +110,7 @@ ul.dropdown > button#logout {
             position .15s ease-out,
             max-height 0s;
     border-radius: 4px;
+    z-index: 2;
     
 }
 

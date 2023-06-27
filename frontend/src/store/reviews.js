@@ -53,21 +53,6 @@ export const fetchReviews = () => async (dispatch) => {
     }
 }
 
-// export const createReview = (review) => async (dispatch) => {
-//     const res = await fetch(`/api/reviews`, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(review)
-//     })
-
-//     if (res.ok) {
-//         const newReview = await res.json();
-//         dispatch(receiveReview(newReview));
-//     }
-// }
-
 export const createReview = (review) => async (dispatch) => {
     const res = await csrfFetch(`/api/reviews`, {
         method: 'POST',
@@ -81,11 +66,8 @@ export const createReview = (review) => async (dispatch) => {
 }
 
 export const updateReview = (review) => async (dispatch) => {
-    const res = await fetch(`/api/reviews/${review.id}`, {
+    const res = await csrfFetch(`/api/reviews/${review.id}`, {
         method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json'
-        },
         body: JSON.stringify(review)
     })
 
@@ -96,7 +78,7 @@ export const updateReview = (review) => async (dispatch) => {
 }
 
 export const deleteReview = (reviewId) => async (dispatch) => {
-    const res = await fetch(`/api/reviews/${reviewId}`, {
+    const res = await csrfFetch(`/api/reviews/${reviewId}`, {
         method: 'DELETE'
     })
 

@@ -11,7 +11,7 @@ export default function ReviewsFormModal ({ barId, reviewId }) {
             <button onClick={() => setShowModal(true)}>Leave a Review</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <ReviewsForm setShowModal={setShowModal} barId={barId}/>
+                    <ReviewsForm setShowModal={setShowModal} barId={barId} reviewId={reviewId}/>
                 </Modal>
             )}
         </>
