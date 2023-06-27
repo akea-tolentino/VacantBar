@@ -18,9 +18,9 @@ export default function ReviewItem ({ currentUser, review }) {
             </div>
             <div>{review.body}</div>
             {currentUser && currentUser.id === review.authorId ?
-                <ul>
+                <ul className='review-buttons-container'>
                     <ReviewsFormModal reviewId={review.id} barId={review.barId} />
-                    <button onClick={()=> dispatch(deleteReview(review.id))}>Delete</button>
+                    <button className='delete-review' onClick={()=> dispatch(deleteReview(review.id))}>Delete</button>
                 </ul> :
                 <div>User: {review.authorId}</div> 
             }

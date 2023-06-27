@@ -17,3 +17,12 @@
 .empty {
     color: rgba(213, 213, 213, 0.692);
 }
+
+.review-buttons-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.review-buttons-container > button {
+    border-radius: 10px;
+}
