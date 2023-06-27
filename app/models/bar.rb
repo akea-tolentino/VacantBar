@@ -11,4 +11,8 @@ class Bar < ApplicationRecord
     through: :reviews_left,
     source: :author
     
+    has_many :reservations,
+    foreign_key: :bar_id,
+    class_name: :Reservation,
+    dependent: :destroy
 end

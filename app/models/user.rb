@@ -17,6 +17,11 @@ class User < ApplicationRecord
   through: :reviews_written,
   source: :bar
 
+  has_many :reservations_made,
+  foreign_key: :user_id,
+  class_name: :Reservation,
+  dependent: :destroy
+
   before_validation :ensure_session_token
 
   def self.find_by_credentials(email, password)

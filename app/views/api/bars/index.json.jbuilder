@@ -4,4 +4,3 @@
         json.imageUrls bar.images.map { |file| file.url }
     end
 end
-

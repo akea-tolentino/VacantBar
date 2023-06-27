@@ -5,7 +5,6 @@ class Api::BarsController < ApplicationController
         @bars = Bar.all
         if @bars
             render :index
-            # render 'api/bars/index'
         else
             render json: {errors: ['No Bars selected']}
         end
