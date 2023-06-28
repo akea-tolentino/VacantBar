@@ -1,23 +1,26 @@
 div.bar-index-container {
-    display: block;
-    margin-top: 48px;
-    padding: 0 32px;
-    width: 80%;
+    /* display: block; */
+    /* margin-top: 48px; */
+    /* padding: 0 32px; */
+    /* width: 80%; */
     margin-left: auto;
     margin-right: auto;
+    display:flex;
+    flex-direction: column;
+    width: 80%;
+    height: 35vh;
 }
 
 ul.bar-index-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%
 }
 
 div.bar-index-container h2 {
-    display: block;
     font-size: 24px;
     text-align: left;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
 }

@@ -3,11 +3,11 @@ class Api::ReservationsController < ApplicationController
     before_action :require_logged_in, only: [:index, :show, :create, :update, :destroy]
 
     def index
-        @reservations = Reservation.all
+        @reservations = Reservation.includes(:user).where("reservation.user_id" == "user.id")
         if @reservations
             render :index
         else
-            render json: {errors: ['No Reservations selected']}
+            render json: {errors: ['No Reservations found']}
         end
     end
 
@@ -24,6 +24,7 @@ class Api::ReservationsController < ApplicationController
         @reservation = Reservation.new(reservation_params)
         @reservation.user_id = current_user.id
         @reservation.bar_id = params[:bar_id]
+        @reservation.num_guests = params[:num_guests]
         if @reservation.save
             render :show
         else
@@ -34,8 +35,10 @@ class Api::ReservationsController < ApplicationController
     def update
         @reservation = Reservation.find(params[:id])
         if @reservation.update(reservations)
+            debugger
             render :show
         else
+            debugger
             render json: {errors: ['Update not saved']}
         end
     end

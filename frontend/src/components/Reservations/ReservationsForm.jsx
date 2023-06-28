@@ -40,8 +40,9 @@ export default function ReservationsForm ({ barId ,sessionUser }) {
             <div className='party-size'>
                 <label>Party Size</label>
                 <select name="party-size" onChange={(e)=> setNumGuests(e.target.value)}>
+                    <option defaultValue={0} disabled>Please select number of guests</option>
                     <option value={1}>1 people</option>
-                    <option defaultValue={2}>2 people</option>
+                    <option value={2}>2 people</option>
                     <option value={3}>3 people</option>
                     <option value={4}>4 people</option>
                     <option value={5}>5 people</option>

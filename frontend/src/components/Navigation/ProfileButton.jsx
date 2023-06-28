@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { FaRegUser } from "react-icons/fa";
+import UserReservationsModal from "../Reservations/UserReservationsModal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -19,9 +20,9 @@ function ProfileButton({ user }) {
       setShowMenu(false);
     };
 
-    document.addEventListener('click', closeMenu);
+    // document.addEventListener('click', closeMenu);
   
-    return () => document.removeEventListener("click", closeMenu);
+    // return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
   const logout = (e) => {
@@ -35,8 +36,9 @@ function ProfileButton({ user }) {
         <FaRegUser id="user-profile" onClick={openMenu}/>
         {showMenu && (
             <ul className="dropdown">
-              <h2>Hello, {user.email}</h2>
+              <h2>Hello, {user.username}</h2>
               <li>{user.email}</li>
+              <UserReservationsModal user={user}/>
               <button id="logout" onClick={logout}>Sign Out</button>
             </ul>
         )}

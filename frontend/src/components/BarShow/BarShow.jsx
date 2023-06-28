@@ -57,11 +57,6 @@ export default function BarShow () {
             </header>
             <div className='bar-show-page'>
                 <section className='bar-details-container'>
-                    {/* <section className='directory'>
-                        <li><a href=".bar-show-page">Overview</a></li>
-                        <li><a href=".photos-container">Photos</a></li>
-                        <li><a href=".reviews-container">Reviews</a></li>
-                    </section> */}
                     <h1 className='bar-header'>{bar.name}</h1>
                     <ul className='bar-show-info'>
                         <li> {bar.address.split(",")[1]} </li> 

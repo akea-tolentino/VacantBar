@@ -1,5 +1,5 @@
-json.extract! @review,
-:id
+json.extract! @reservation,
+:id,
 :num_guests,
 :date,
 :time,
