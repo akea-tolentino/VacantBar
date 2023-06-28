@@ -1,6 +1,6 @@
 class Api::ReservationsController < ApplicationController
     wrap_parameters include: Reservation.attribute_names
-    before_action :require_logged_in, only: [:index, :show, :create, :update, :delete]
+    before_action :require_logged_in, only: [:index, :show, :create, :update, :destroy]
 
     def index
         @reservations = Reservation.all
@@ -40,7 +40,7 @@ class Api::ReservationsController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
         @reservation = Reservation.find(params[:id])
         @reservation.destroy
         render :show

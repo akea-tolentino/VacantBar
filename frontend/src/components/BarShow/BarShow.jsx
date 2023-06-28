@@ -8,6 +8,7 @@ import { MdLocationOn } from "react-icons/md";
 import ReviewsIndex from '../Reviews/ReviewsIndex';
 import ReviewsFormModal from '../Reviews/ReviewsFormModal';
 import LoginFormModal from '../LoginFormModal';
+import ReservationsForm from '../Reservations/ReservationsForm';
 
 export default function BarShow () {
     const dispatch = useDispatch();
@@ -54,13 +55,13 @@ export default function BarShow () {
                 <img key={bar.imageUrls[0]} src={bar.imageUrls[0]} alt="" /> : null
             }
             </header>
-            <section className='directory'>
-                <li><a href=".bar-show-page">Overview</a></li>
-                <li><a href=".photos-container">Photos</a></li>
-                <li><a href=".reviews-container">Reviews</a></li>
-            </section>
             <div className='bar-show-page'>
                 <section className='bar-details-container'>
+                    {/* <section className='directory'>
+                        <li><a href=".bar-show-page">Overview</a></li>
+                        <li><a href=".photos-container">Photos</a></li>
+                        <li><a href=".reviews-container">Reviews</a></li>
+                    </section> */}
                     <h1 className='bar-header'>{bar.name}</h1>
                     <ul className='bar-show-info'>
                         <li> {bar.address.split(",")[1]} </li> 
@@ -93,7 +94,7 @@ export default function BarShow () {
                 </section>
                 <section className='side-bar-container'>
                     <article className='reservations-container'>
-                        Reservations go here
+                        <ReservationsForm sessionUser={sessionUser} barId={barId}/>
                     </article>
                     <article className='location-container'>
                         <div className='map-container'>

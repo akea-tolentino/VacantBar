@@ -24,3 +24,17 @@ json.reviews do
         end
     end
 end
+
+json.reservations do
+    @bar.reservations.each do |reservation|
+        json.set! reservation.id do
+            json.extract! reservation,
+            :id,
+            :num_guests,
+            :date,
+            :time,
+            :bar_id,
+            :user_id
+        end
+    end
+end
