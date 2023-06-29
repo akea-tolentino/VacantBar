@@ -1,6 +1,6 @@
 databases:
-  - name: vacant-bar
-    user: vacant-bar
+  - name: vacant_bar
+    user: vacant_bar_user
     plan: free
     region: oregon
 
