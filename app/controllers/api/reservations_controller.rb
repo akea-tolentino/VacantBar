@@ -34,11 +34,9 @@ class Api::ReservationsController < ApplicationController
     
     def update
         @reservation = Reservation.find(params[:id])
-        if @reservation.update(reservations)
-            debugger
+        if @reservation.update(reservation_params)
             render :show
         else
-            debugger
             render json: {errors: ['Update not saved']}
         end
     end
@@ -53,6 +51,6 @@ class Api::ReservationsController < ApplicationController
     private
 
     def reservation_params
-        params.require(:reservation).permit(:num_guests, :date, :time)
+        params.require(:reservation).permit(:id, :num_guests, :date, :time)
     end
 end

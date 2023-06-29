@@ -46,9 +46,9 @@ export default function ReviewsForm ({ reviewId, barId, setShowModal }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div>
+            <div className="review-form-content">
                 <h1>{formType}</h1>
-                <label>Rating: 
+                <label>Rating: <br/> <br/>
                     <input 
                         type="number"
                         value={rating}
@@ -57,16 +57,16 @@ export default function ReviewsForm ({ reviewId, barId, setShowModal }) {
                         onChange={(e)=> setRating(e.target.value)}
                         />
                 </label>
-                <label>Body: 
+                <label>Body: <br/> <br/>
                     <textarea 
                         value={body}
                         placeholder="Leave review here"
                         rows="5"
-                        cols="25"
+                        cols="40"
                         onChange={(e)=> setBody(e.target.value)}
                         />
                 </label>
-                <button>{formType}</button>
+                <button className="submit-review">{formType}</button>
             </div>
         </form>
     )

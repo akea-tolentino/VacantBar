@@ -4,12 +4,15 @@ import { createReservation, fetchReservation, getReservation, updateReservation 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './ReservationsForm.css';
+import { useParams } from 'react-router-dom/cjs/react-router-dom';
 
 
-export default function ReservationsForm ({ reservationId, barId ,sessionUser }) {
+export default function ReservationsForm ({ reservationId, sessionUser }) {
     const dispatch = useDispatch();
     let reservation = useSelector(getReservation(reservationId));
     const formType = (reservationId !== undefined ? 'Edit Reservation' : 'Make a Reservation');
+    const {barId} = useParams
+    let ampm;
 
     if (formType === 'Make a Reservation') {
         reservation = {
@@ -32,7 +35,7 @@ export default function ReservationsForm ({ reservationId, barId ,sessionUser })
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+    
         const newReservation = {
             ...reservation,
             numGuests,
@@ -41,12 +44,13 @@ export default function ReservationsForm ({ reservationId, barId ,sessionUser })
             barId
         }
         
-        if (formType === 'Make a Reservation') {
+        if (newReservation !== undefined && formType === 'Make a Reservation') {
             dispatch(createReservation(newReservation));
         } else {
             dispatch(updateReservation(newReservation));
         }
     }
+
 
     return (
         <form className="reservations-form" onSubmit={handleSubmit}>
@@ -54,9 +58,8 @@ export default function ReservationsForm ({ reservationId, barId ,sessionUser })
             <div className='party-size'>
                 <label>Party Size</label>
                 <select name="party-size" onChange={(e)=> setNumGuests(e.target.value)}>
-                    <option value={0} disabled>Please select number of guests</option>
                     <option value={1}>1 person</option>
-                    <option defaultValue={2}>2 people</option>
+                    <option value={2}>2 people</option>
                     <option value={3}>3 people</option>
                     <option value={4}>4 people</option>
                     <option value={5}>5 people</option>
@@ -74,17 +77,23 @@ export default function ReservationsForm ({ reservationId, barId ,sessionUser })
                     <label>Date</label>
                     <DatePicker
                         todayButton="Back to Today"
-                        selected={date}
+                        selected={new Date(date)}
                         minDate={new Date()}
                         onChange={(e) => setDate(e)}
-                        isClearable
-                        placeholderText='Choose a Date'
                         />
                 </div>
                 <div className='time'>
                     <label>Time</label>
                     <select name="time" onChange={(e)=> setTime(e.target.value)}>
-                        <option value='null' disabled selected>Pick a Time</option>
+                    {formType === 'Edit Reservation' ? (
+                        <option value={new Date(time).getHours().toString()} disabled selected>
+                            {new Date(time).getHours()}:{new Date(time).getMinutes()}
+                                {new Date(time).getMinutes() === 0 ? "0" : null}
+                                {new Date(time).getHours() > 11 ? ampm = " AM" : ampm = " PM"}
+                        </option> ) : (
+                        <option value={null} disabled selected>Choose a time</option>
+                        )
+                    }
                         <option value='17:00'>5:00 PM</option>
                         <option value='17:30'>5:30 PM</option>
                         <option value='18:00'>6:00 PM</option>

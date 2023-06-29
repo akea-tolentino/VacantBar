@@ -34,3 +34,30 @@
     font-weight: 200;
 }
 
+.review-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: baseline;
+    height: 35vh;
+    width: 50vw;
+    font-weight: 300;
+}
+
+.review-form-content > h1 {
+    font-size: 20px;
+    margin-bottom: 3%;
+}
+
+.submit-review {
+    margin: 0 0 4px;
+    padding: 1px 6px;
+    height: 3vh;
+    background-color: #da3743;
+    color: white;
+    border: none;
+    border-color: #da3743;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}

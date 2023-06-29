@@ -1,3 +1,5 @@
+avgReviews = @bars.includes(:reviews_left)
+
 json.bar do
     json.extract! @bar, 
     :id, 
