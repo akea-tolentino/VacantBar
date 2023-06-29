@@ -14,7 +14,7 @@ export default function BarIndex () {
 
     return (
         <div className="bar-index-container">
-            <h2>Bars Index</h2>
+            <h2>In your area</h2>
             <ul className="bar-index-container">
                 {bars.map(bar => <BarIndexItem key={bar.id} bar={bar} />)}
             </ul>

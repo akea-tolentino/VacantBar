@@ -4,6 +4,7 @@ import BarIndex from "./components/BarIndex/BarIndex";
 import BarShow from "./components/BarShow/BarShow";
 import Navigation from "./components/Navigation";
 import { Wrapper } from "@googlemaps/react-wrapper";
+import Footer from "./components/Footer/Footer";
 
 const apiKey = process.env.REACT_APP_GMAPS_API_SERVER_KEY;
 
@@ -20,6 +21,7 @@ function App() {
         </Wrapper>
           
         </Switch>
+      <Footer />
     </>
   );
 }

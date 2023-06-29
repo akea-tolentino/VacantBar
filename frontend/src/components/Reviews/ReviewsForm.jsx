@@ -46,26 +46,28 @@ export default function ReviewsForm ({ reviewId, barId, setShowModal }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <h1>{formType}</h1>
-            <label>Rating: 
-                <input 
-                    type="number"
-                    value={rating}
-                    min="1"
-                    max="5"
-                    onChange={(e)=> setRating(e.target.value)}
-                />
-            </label>
-            <label>Body: 
-                <textarea 
-                    value={body}
-                    placeholder="Leave review here"
-                    rows="5"
-                    cols="25"
-                    onChange={(e)=> setBody(e.target.value)}
-                />
-            </label>
-            <button>{formType}</button>
+            <div>
+                <h1>{formType}</h1>
+                <label>Rating: 
+                    <input 
+                        type="number"
+                        value={rating}
+                        min="1"
+                        max="5"
+                        onChange={(e)=> setRating(e.target.value)}
+                        />
+                </label>
+                <label>Body: 
+                    <textarea 
+                        value={body}
+                        placeholder="Leave review here"
+                        rows="5"
+                        cols="25"
+                        onChange={(e)=> setBody(e.target.value)}
+                        />
+                </label>
+                <button>{formType}</button>
+            </div>
         </form>
     )
 }

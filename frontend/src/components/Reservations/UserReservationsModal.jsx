@@ -24,9 +24,11 @@ export default function UserReservationsModal ({ user }) {
                 <Modal onClose={() => setShowModal(false)}>
                     <h1 className='reservation-list-header'>{user.username} 's reservations</h1>
                     <ul>{reservations.map( reservation => <li key={reservation.id} className="reservation-list">
+                        <p>{reservation.barAddress}</p>
                         <p>Party Size: {reservation.numGuests}</p>
                         <time>{reservation.date}</time>
                         <time>{reservation.time}</time>
+                        <p>{reservation.barName}</p>
                         <div className='reservation-list-buttons'>
                             <button onClick={() => setShowForm(true)}>Edit</button>
                             {showForm && (
