@@ -30,7 +30,7 @@
 
 .home-link > svg {
     font-size: 36px;
-    color: #247f9e;
+    color: #da3743;
     padding-right: 2px;
 }
 
@@ -63,12 +63,15 @@ svg.search {
     justify-content: right;
     padding-right: 1vw;
 }
+.sign-links-container > button:hover {
+    background-color: #b31520;
+}
 
 .sign-links-container > button {
-    background-color: #247f9e;
+    background-color: #da3743;
     box-sizing: border-box;
-    background-color: #247f9e;
-    border: 0.0625rem solid #247f9e;
+    background-color: #da3743;
+    border: 0.0625rem solid #da3743;
     color: #ffffffcd;
     font-size: 12px;
     font-weight: 100;
@@ -86,16 +89,26 @@ svg#user-profile {
     cursor: pointer;
 }
 
+ul.dropdown > button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    font-size: 15px;
+}
+
 ul.dropdown > button#logout {
     background-color: white;
-    color: #247f9e;
+    color: #da3743;
     border: none;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .dropdown {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    text-align: right;
     justify-content: space-evenly;
     position: fixed;
     top: 8vh;
@@ -111,101 +124,4 @@ ul.dropdown > button#logout {
             max-height 0s;
     border-radius: 4px;
     z-index: 2;
-    
 }
-
-/* 
-div.nav-container > ul {
-    display: flex;
-    margin-top: 15px;
-    justify-content: space-between;
-    max-height: 84px;
-}
-
-li a {
-    margin: 20px ;
-    padding: 10px;
-    font-size: 24px;
-    color: black;
-    list-style: none;
-    text-decoration: none;
-}
-
-.dropdown {
-    position: fixed;
-    top: 85px;
-    border-radius: 4px;
-    background-color: white;
-    padding: 15px;
-    box-shadow: 0 2px 4px #2d333f33;
-
-}
-
-.profile {
-    position: relative;
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-ul.dropdown {
-    padding: 15px;
-    justify-content: left;
-    background-color: white
-}
-
-ul.dropdown > li {
-    margin: 5px
-}
-
-ul li {
-    display: flex;
-}
-
-li.sign-buttons {
-    display: flex;
-    align-items: center;
-    padding: 25px;
-}
-
-li.sign-buttons > button {
-    display: inline-block;
-    box-sizing: border-box;
-    background-color: #247f9e;
-    border: 0.0625rem solid #247f9e;
-    color: #ffffffcd;
-    font-size: 12px;
-    font-weight: 100;
-    margin: 0 12px;
-    border-radius: 0.1875rem;
-    cursor: pointer;
-    line-height: 2rem;
-    padding: 0 16px;
-    width: 77px;
-}
-
-svg.search {
-    width: 19px;
-    height: 19px;
-    padding-left: 10px;
-    padding-right: 10px;
-    cursor: pointer;
-}
-
-svg.icon {
-    height: 19px;
-    width: 19px;
-    color: black;
-    cursor: pointer;
-}
-
-svg#logo {
-    height: 30px;
-    width: 30px;
-    color: #247f9e;
-}
-
-button#logout {
-    background-color: white;
-    color: #247f9e;
-    border: none;
-} */

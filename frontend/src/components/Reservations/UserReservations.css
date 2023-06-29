@@ -1,0 +1,24 @@
+.reservation-list {
+    display: flex;
+    flex-direction: column;
+    margin: 3px;
+}
+
+.reservation-list-buttons > button{
+    border-radius: 8px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    padding: 4px;
+    font-weight: 200;
+}
+
+.reservation-list-buttons {
+    display: flex;
+}
+
+.reservation-list-header {
+    font-size: 20px;
+    margin-bottom: 20px;
+}

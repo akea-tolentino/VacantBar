@@ -4,7 +4,7 @@ import ReviewsForm from './ReviewsForm';
 
 export default function ReviewsFormModal ({ barId, reviewId }) {
     const [showModal, setShowModal] = useState(false);
-    const formType = ( reviewId ? 'Edit Review' : 'Leave a Review');
+    const formType = ( reviewId ? 'Edit' : 'Leave a Review');
 
     return (
         <>

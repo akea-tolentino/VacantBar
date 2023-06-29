@@ -1,19 +1,30 @@
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
-import { createReservation } from '../../store/reservations';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { createReservation, fetchReservation, getReservation, updateReservation } from '../../store/reservations';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './ReservationsForm.css';
 
 
-export default function ReservationsForm ({ barId ,sessionUser }) {
+export default function ReservationsForm ({ reservationId, barId ,sessionUser }) {
     const dispatch = useDispatch();
-    let reservation = {
-        numGuests: 0,
-        date: new Date(),
-        time: "17:00",
-        barId
+    let reservation = useSelector(getReservation(reservationId));
+    const formType = (reservationId !== undefined ? 'Edit Reservation' : 'Make a Reservation');
+
+    if (formType === 'Make a Reservation') {
+        reservation = {
+            numGuests: 0,
+            date: new Date(),
+            time: "17:00",
+            barId
+        }
     }
+
+    useEffect(() => {
+        if (formType === 'Edit Reservation') {
+            dispatch(fetchReservation(reservationId))
+        }
+    }, [reservationId, dispatch])
 
     const [numGuests, setNumGuests] = useState(reservation.numGuests)
     const [date, setDate] = useState(reservation.date)
@@ -29,20 +40,23 @@ export default function ReservationsForm ({ barId ,sessionUser }) {
             time,
             barId
         }
-    
-        dispatch(createReservation(newReservation));
-    
+        
+        if (formType === 'Make a Reservation') {
+            dispatch(createReservation(newReservation));
+        } else {
+            dispatch(updateReservation(newReservation));
+        }
     }
 
     return (
         <form className="reservations-form" onSubmit={handleSubmit}>
-            <h2>Make a reservation</h2>
+            <h2>{formType}</h2>
             <div className='party-size'>
                 <label>Party Size</label>
                 <select name="party-size" onChange={(e)=> setNumGuests(e.target.value)}>
-                    <option defaultValue={0} disabled>Please select number of guests</option>
-                    <option value={1}>1 people</option>
-                    <option value={2}>2 people</option>
+                    <option value={0} disabled>Please select number of guests</option>
+                    <option value={1}>1 person</option>
+                    <option defaultValue={2}>2 people</option>
                     <option value={3}>3 people</option>
                     <option value={4}>4 people</option>
                     <option value={5}>5 people</option>
@@ -63,11 +77,14 @@ export default function ReservationsForm ({ barId ,sessionUser }) {
                         selected={date}
                         minDate={new Date()}
                         onChange={(e) => setDate(e)}
+                        isClearable
+                        placeholderText='Choose a Date'
                         />
                 </div>
                 <div className='time'>
                     <label>Time</label>
                     <select name="time" onChange={(e)=> setTime(e.target.value)}>
+                        <option value='null' disabled selected>Pick a Time</option>
                         <option value='17:00'>5:00 PM</option>
                         <option value='17:30'>5:30 PM</option>
                         <option value='18:00'>6:00 PM</option>
@@ -87,7 +104,7 @@ export default function ReservationsForm ({ barId ,sessionUser }) {
             </section>
             <div className='reservation-directive'>
                 {sessionUser ?
-                <button>Book a reservation</button> :
+                <button>Submit reservation</button> :
                 <span>Sign in to book reservation</span>
                 }
             </div>
