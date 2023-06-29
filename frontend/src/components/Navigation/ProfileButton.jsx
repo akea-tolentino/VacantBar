@@ -21,7 +21,8 @@ function ProfileButton({ user }) {
     };
 
     // document.addEventListener('click', closeMenu);
-  
+    // document.getElementById('modal-background').addEventListener('click', closeMenu)
+
     // return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
