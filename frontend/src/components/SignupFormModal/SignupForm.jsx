@@ -12,6 +12,7 @@ const SignupForm = () => {
     const [lname, setLName] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([]);
@@ -26,6 +27,7 @@ const SignupForm = () => {
                 fname: fname,
                 lname: lname,
                 email: email,
+                username: username,
                 phone: phone,
                 password: password,
                 confirmPassword: confirmPassword
@@ -67,6 +69,15 @@ const SignupForm = () => {
                 value={lname}
                 onChange={e => setLName(e.target.value)}
                 placeholder="Last Name"
+                />
+            </label>
+            <br/>
+            <label>
+                <input
+                type="text"
+                value={username}
+                onChange={e => setUsername(e.target.value)}
+                placeholder="Username"
                 />
             </label>
             <br/>
