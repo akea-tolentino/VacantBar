@@ -63,7 +63,8 @@ export default function BarShow () {
                         <li>{bar.barType}</li>
                         <li>{bar.price}</li>
                     </ul>
-                    <div className='show-tags'>tags go here</div>
+                    {/* review average goes here */}
+                    {/* <div className='show-tags'>tags go here</div> */}
                     <p className='bar-description'>{bar.description}</p>
                     <h2>Photos</h2> 
                             {bar.imageUrls !== undefined ? 
