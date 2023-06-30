@@ -53,7 +53,7 @@ export default function UserReservationsModal ({ user, changeModal }) {
                         </div>
                     </li>)}</ul>
                             {showForm && (
-                                <ReservationsForm reservationId={resId} sessionUser={user} />
+                                <ReservationsForm changeModal={changeModal} reservationId={resId} sessionUser={user} />
                             )}
                 </Modal>
 
