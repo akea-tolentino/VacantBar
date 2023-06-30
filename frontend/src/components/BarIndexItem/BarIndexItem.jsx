@@ -16,7 +16,7 @@ export default function BarIndexItem ({ bar }) {
                 </div>
                 <section className='index-item-container'>
                     <h2 id='bar-name'>{bar.name}</h2>
-                    <li>reviews coming soon</li>
+                    {/* <li>reviews coming soon</li> */}
                     <ul className='index-item-info'>
                         <li> {bar.address.split(",")[1]}</li>
                         <li>|</li> 
