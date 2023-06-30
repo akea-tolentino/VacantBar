@@ -5,8 +5,10 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import SignupFormModal from '../SignupFormModal';
-import { LuSearch  } from "react-icons/lu";
 import { MdTableBar } from "react-icons/md";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
+// import { LuSearch  } from "react-icons/lu";
+
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -39,8 +41,18 @@ function Navigation() {
           <li className='sign-links-container'>
             {sessionLinks}
           </li>
-          <li className='nav-search-container'>
+          {/* <li className='nav-search-container'>
             <LuSearch className='search'/>
+          </li> */}
+          <li className="github">
+            <a href="https://github.com/akea-tolentino/VacantBar.git">
+                <BsGithub />
+            </a>
+          </li>
+          <li className="linkedin">
+            <a href="https://www.linkedin.com/in/jamesbradley-tolentino-813555229/">
+                <BsLinkedin />
+            </a>
           </li>
         </ul>
       </ul>

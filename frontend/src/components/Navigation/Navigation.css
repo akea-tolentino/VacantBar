@@ -48,7 +48,24 @@ ul.sign-buttons-container {
     border-left: 1px solid rgba(128, 128, 128, 0.078);
     justify-content: center;
     align-items: center;
+}
 
+.github, .linkedin {
+    display: flex;
+    width: 6vw;
+    border-left: 1px solid rgba(128, 128, 128, 0.078);
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+li > a {
+    color: black;
+}
+
+li > a:hover {
+    color: black;
+    color: rgba(4, 1, 1, 0.446);
 }
 
 svg.search {
