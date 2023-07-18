@@ -25,21 +25,21 @@
     width: 100%;
     height: 100%;
     justify-content: space-evenly;
-    
+    background-color: #03030303;
 }
 
 .bar-details-container {
     width: 40%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: #fff;
     border-radius: 4px;
     margin-top: -5vh;
-    padding-top: 10vh;
     padding-left: 2vw;
     padding-right: 2vw;
+    padding-bottom: 5vh;
+    box-shadow: 0 2px 4px #2d333f33;
 }
 
 .bar-show-info {
@@ -124,7 +124,7 @@
     justify-content: space-around;
     align-items: center;
     position: sticky;
-    z-index: 1;
+    /* z-index: 100; */
 }
 
 .location-container {
@@ -134,7 +134,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 96%;
     margin-top: 12px;
     padding: 8px;
 }
