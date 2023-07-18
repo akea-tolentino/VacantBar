@@ -45,7 +45,7 @@ const SignupForm = () => {
                 else setErrors([response.statusText]);
                 });
         } else {
-            return setErrors(['Confirm Password field must be the same as the Password field']);
+            return setErrors(['Confirm Password field must match the Password field']);
         }
     };
 
@@ -118,8 +118,8 @@ const SignupForm = () => {
             </label>
             <br />
             <ul>
-                { errors.map(error =>
-                    <li key={error}>
+                {errors.map(error =>
+                    <li>
                         {error}
                     </li>
                 )}
