@@ -7,7 +7,6 @@ import { RiStarSFill } from "react-icons/ri";
 
 export default function BarIndexItem ({ bar }) {
 
-
     return (
         <div className='index-item-wrapper'>
             <NavLink to={`/bars/${bar.id}`} className="bar-name">
@@ -20,11 +19,17 @@ export default function BarIndexItem ({ bar }) {
                     <h2 id='bar-name'>{bar.name}</h2>
                     <li>
                         <div className='review-rating'>
-                            <RiStarSFill className={Math.round(bar.averageRating) > 0 ? 'filled' : 'empty'}/>
-                            <RiStarSFill className={Math.round(bar.averageRating) > 1 ? 'filled' : 'empty'}/>
-                            <RiStarSFill className={Math.round(bar.averageRating) > 2 ? 'filled' : 'empty'}/>
-                            <RiStarSFill className={Math.round(bar.averageRating) > 3 ? 'filled' : 'empty'}/>
-                            <RiStarSFill className={Math.round(bar.averageRating) > 4 ? 'filled' : 'empty'}/>
+                            <span>
+                                <RiStarSFill className={Math.round(bar.averageRating) > 0 ? 'filled' : 'empty'}/>
+                                <RiStarSFill className={Math.round(bar.averageRating) > 1 ? 'filled' : 'empty'}/>
+                                <RiStarSFill className={Math.round(bar.averageRating) > 2 ? 'filled' : 'empty'}/>
+                                <RiStarSFill className={Math.round(bar.averageRating) > 3 ? 'filled' : 'empty'}/>
+                                <RiStarSFill className={Math.round(bar.averageRating) > 4 ? 'filled' : 'empty'}/>
+                            </span>
+                            {bar.numReviews > 1 ?
+                                <p>({bar.numReviews} reviews)</p> :
+                                <p>({bar.numReviews} review)</p>
+                            }
                         </div>
                     </li>
                     <ul className='index-item-info'>

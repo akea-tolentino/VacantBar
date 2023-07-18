@@ -5,7 +5,9 @@
 
         reviews = bar.reviews_left
         average_rating = reviews.average(:rating) if reviews.any?
+        num_reviews = reviews.count if reviews.any?
 
         json.averageRating average_rating
+        json.numReviews num_reviews
     end
 end

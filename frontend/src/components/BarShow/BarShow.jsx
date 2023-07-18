@@ -9,6 +9,8 @@ import ReviewsIndex from '../Reviews/ReviewsIndex';
 import ReviewsFormModal from '../Reviews/ReviewsFormModal';
 import LoginFormModal from '../LoginFormModal';
 import ReservationsForm from '../Reservations/ReservationsForm';
+import { RiStarSFill } from "react-icons/ri";
+
 
 export default function BarShow () {
     const dispatch = useDispatch();
@@ -58,12 +60,21 @@ export default function BarShow () {
             <div className='bar-show-page'>
                 <section className='bar-details-container'>
                     <h1 className='bar-header'>{bar.name}</h1>
+                    <div className='review-rating'>
+                        <span>
+                            <RiStarSFill className={Math.round(bar.averageRating) > 0 ? 'filled' : 'empty'}/>
+                            <RiStarSFill className={Math.round(bar.averageRating) > 1 ? 'filled' : 'empty'}/>
+                            <RiStarSFill className={Math.round(bar.averageRating) > 2 ? 'filled' : 'empty'}/>
+                            <RiStarSFill className={Math.round(bar.averageRating) > 3 ? 'filled' : 'empty'}/>
+                            <RiStarSFill className={Math.round(bar.averageRating) > 4 ? 'filled' : 'empty'}/>
+                        </span>
+                        <p>({bar.numReviews} reviews)</p>
+                    </div>
                     <ul className='bar-show-info'>
                         <li> {bar.address.split(",")[1]} </li> 
                         <li>{bar.barType}</li>
                         <li>{bar.price}</li>
                     </ul>
-                    {/* review average goes here */}
                     {/* <div className='show-tags'>tags go here</div> */}
                     <p className='bar-description'>{bar.description}</p>
                     <h2>Photos</h2> 
