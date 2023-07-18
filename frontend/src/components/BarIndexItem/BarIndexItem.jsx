@@ -7,6 +7,16 @@ import { RiStarSFill } from "react-icons/ri";
 
 export default function BarIndexItem ({ bar }) {
 
+    const price = bar.price;
+
+    function printDollar(price) {
+        let result = '';
+        for (let i = 0; i < price; i++) {
+          result += '$';
+        }
+        return result;
+      }
+
     return (
         <div className='index-item-wrapper'>
             <NavLink to={`/bars/${bar.id}`} className="bar-name">
@@ -37,7 +47,8 @@ export default function BarIndexItem ({ bar }) {
                         <li>|</li> 
                         <li>{bar.barType}</li>
                         <li>|</li> 
-                        <li>{bar.price}</li>
+                        {/* <li>{bar.price}</li> */}
+                        <li>{printDollar(bar.price)}</li>
                     </ul>
                 </section>
             </NavLink>
