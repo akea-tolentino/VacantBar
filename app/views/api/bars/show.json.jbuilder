@@ -27,6 +27,7 @@ json.reviews do
             :author_id, 
             :bar_id, 
             :updated_at
+            json.authorUsername review.author.username
         end
     end
 end
