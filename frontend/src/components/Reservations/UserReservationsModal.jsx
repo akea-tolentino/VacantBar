@@ -39,12 +39,15 @@ export default function UserReservationsModal ({ user, changeModal }) {
                             </time>
                             <br/>
                             <time>
+                                {new Date(reservation.time).toLocaleTimeString()}
+                            </time>
+                            {/* <time>
                                 {new Date(reservation.time).getHours()}
                                 :
                                 {new Date(reservation.time).getMinutes()}
                                 {new Date(reservation.time).getMinutes() === 0 ? "0" : null}
                                 {new Date(reservation.time).getHours() > 11 ? ampm = " AM" : ampm = " PM"}
-                            </time>
+                            </time> */}
                         </div>
                         <p>{reservation.barAddress}</p>
                         <div className='reservation-list-buttons'>
@@ -53,7 +56,7 @@ export default function UserReservationsModal ({ user, changeModal }) {
                         </div>
                     </li>)}</ul>
                             {showForm && (
-                                <ReservationsForm changeModal={changeModal} reservationId={resId} sessionUser={user} />
+                                <ReservationsForm reservationId={resId} sessionUser={user} />
                             )}
                 </Modal>
 

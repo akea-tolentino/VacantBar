@@ -7,12 +7,12 @@ import './ReservationsForm.css';
 import { useParams } from 'react-router-dom/cjs/react-router-dom';
 
 
-export default function ReservationsForm ({ changeModal, reservationId, sessionUser }) {
+export default function ReservationsForm ({ reservationId, sessionUser }) {
     const dispatch = useDispatch();
     let reservation = useSelector(getReservation(reservationId));
     const formType = (reservationId !== undefined ? 'Edit Reservation' : 'Make a Reservation');
     const [showForm, setShowForm] = useState(true);
-    const {barId} = useParams
+    const {barId} = useParams();
     let ampm;
 
     if (formType === 'Make a Reservation') {
@@ -51,7 +51,6 @@ export default function ReservationsForm ({ changeModal, reservationId, sessionU
             dispatch(updateReservation(newReservation));
         }
         setShowForm(false);
-        changeModal();
     }
 
 
