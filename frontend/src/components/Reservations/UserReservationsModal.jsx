@@ -38,16 +38,16 @@ export default function UserReservationsModal ({ user, changeModal }) {
                                 {new Date(reservation.date).getFullYear()}
                             </time>
                             <br/>
-                            <time>
-                                {new Date(reservation.time).toLocaleTimeString()}
-                            </time>
                             {/* <time>
+                                {new Date(reservation.time).getHours()}:{new Date(reservation.time).getMinutes()}
+                            </time> */}
+                            <time>
                                 {new Date(reservation.time).getHours()}
                                 :
                                 {new Date(reservation.time).getMinutes()}
                                 {new Date(reservation.time).getMinutes() === 0 ? "0" : null}
-                                {new Date(reservation.time).getHours() > 11 ? ampm = " AM" : ampm = " PM"}
-                            </time> */}
+                                {new Date(reservation.time).getHours() <= 11 ? ampm = " AM" : ampm = " PM"}
+                            </time>
                         </div>
                         <p>{reservation.barAddress}</p>
                         <div className='reservation-list-buttons'>

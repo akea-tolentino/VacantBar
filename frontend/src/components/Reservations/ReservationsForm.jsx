@@ -14,12 +14,16 @@ export default function ReservationsForm ({ reservationId, sessionUser }) {
     const [showForm, setShowForm] = useState(true);
     const {barId} = useParams();
     let ampm;
+    const month = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'}
 
     if (formType === 'Make a Reservation') {
+        let newResTime = new Date();
+        newResTime.setHours(17);
+        newResTime.setMinutes(0);
         reservation = {
-            numGuests: 0,
+            numGuests: 1,
             date: new Date(),
-            time: "17:00",
+            time: newResTime.toUTCString(),
             barId
         }
     }
@@ -36,12 +40,13 @@ export default function ReservationsForm ({ reservationId, sessionUser }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const local = new Date(`${date.getUTCDate()} ${month[date.getUTCMonth() + 1]} ${date.getUTCFullYear()} ${time}`);
     
         const newReservation = {
             ...reservation,
             numGuests,
             date,
-            time,
+            time: `${date.getUTCDate()} ${month[date.getUTCMonth() + 1]} ${date.getUTCFullYear()} ${local.getUTCHours()}:${local.getUTCMinutes()}:00`,
             barId
         }
         
@@ -98,20 +103,20 @@ export default function ReservationsForm ({ reservationId, sessionUser }) {
                             <option value={null} disabled selected>Choose a time</option>
                             )
                         }
-                            <option value='17:00'>5:00 PM</option>
-                            <option value='17:30'>5:30 PM</option>
-                            <option value='18:00'>6:00 PM</option>
-                            <option value='18:30'>6:30 PM</option>
-                            <option value='19:00'>7:00 PM</option>
-                            <option value='19:30'>7:30 PM</option>
-                            <option value='20:00'>8:00 PM</option>
-                            <option value='20:30'>8:30 PM</option>
-                            <option value='21:00'>9:00 PM</option>
-                            <option value='21:30'>9:30 PM</option>
-                            <option value='22:00'>10:00 PM</option>
-                            <option value='22:30'>10:30 PM</option>
-                            <option value='23:00'>11:00 PM</option>
-                            <option value='23:30'>11:30 PM</option>
+                            <option value={'17:00:00'}>5:00 PM</option>
+                            <option value={'17:30:00'}>5:30 PM</option>
+                            <option value={'18:00:00'}>6:00 PM</option>
+                            <option value={'18:30:00'}>6:30 PM</option>
+                            <option value={'19:00:00'}>7:00 PM</option>
+                            <option value={'19:30:00'}>7:30 PM</option>
+                            <option value={'20:00:00'}>8:00 PM</option>
+                            <option value={'20:30:00'}>8:30 PM</option>
+                            <option value={'21:00:00'}>9:00 PM</option>
+                            <option value={'21:30:00'}>9:30 PM</option>
+                            <option value={'22:00:00'}>10:00 PM</option>
+                            <option value={'22:30:00'}>10:30 PM</option>
+                            <option value={'23:00:00'}>11:00 PM</option>
+                            <option value={'23:30:00'}>11:30 PM</option>
                         </select>
                     </div>
                 </section>
