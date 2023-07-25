@@ -7,13 +7,12 @@ import './ReservationsForm.css';
 import { useParams } from 'react-router-dom/cjs/react-router-dom';
 
 
-export default function ReservationsForm ({ reservationId, sessionUser }) {
+export default function ReservationsForm ({ changeShowForm, changeForm, reservationId, sessionUser }) {
     const dispatch = useDispatch();
     let reservation = useSelector(getReservation(reservationId));
     const formType = (reservationId !== undefined ? 'Edit Reservation' : 'Make a Reservation');
     const [showForm, setShowForm] = useState(true);
     const {barId} = useParams();
-    let ampm;
     const month = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'}
 
     if (formType === 'Make a Reservation') {
@@ -35,11 +34,12 @@ export default function ReservationsForm ({ reservationId, sessionUser }) {
     }, [reservationId, dispatch])
 
     const [numGuests, setNumGuests] = useState(reservation.numGuests)
-    const [date, setDate] = useState(reservation.date)
+    const [date, setDate] = useState(new Date(reservation.date))
     const [time, setTime] = useState(reservation.time)
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        debugger
         const local = new Date(`${date.getUTCDate()} ${month[date.getUTCMonth() + 1]} ${date.getUTCFullYear()} ${time}`);
     
         const newReservation = {
@@ -55,7 +55,12 @@ export default function ReservationsForm ({ reservationId, sessionUser }) {
         } else {
             dispatch(updateReservation(newReservation));
         }
-        setShowForm(false);
+        // setShowForm(false);
+        if (formType === 'Edit Reservation')
+        {
+            changeShowForm()
+            changeForm();
+        }
     }
 
 
@@ -67,6 +72,11 @@ export default function ReservationsForm ({ reservationId, sessionUser }) {
                 <div className='party-size'>
                     <label>Party Size</label>
                     <select name="party-size" onChange={(e)=> setNumGuests(e.target.value)}>
+                        {formType === 'Edit Reservation' ? (
+                        <option defaultValue={numGuests}>{numGuests}</option>
+                        ):
+                        <option defaultValue={null}>Party Size</option>
+                        }
                         <option value={1}>1 person</option>
                         <option value={2}>2 people</option>
                         <option value={3}>3 people</option>
@@ -95,10 +105,9 @@ export default function ReservationsForm ({ reservationId, sessionUser }) {
                         <label>Time</label>
                         <select name="time" onChange={(e)=> setTime(e.target.value)}>
                         {formType === 'Edit Reservation' ? (
-                            <option value={new Date(time).getHours().toString()} disabled selected>
-                                {new Date(time).getHours()}:{new Date(time).getMinutes()}
-                                    {new Date(time).getMinutes() === 0 ? "0" : null}
-                                    {new Date(time).getHours() > 11 ? ampm = " AM" : ampm = " PM"}
+                            <option defaultValue={new Date(time).getHours().toString()}>
+                                {new Date(time).getHours() > 12 ? new Date(time).getHours() - 12 : new Date(time).getHours()}:{new Date(time).getMinutes()}
+                                    {new Date(time).getMinutes() === 0 ? "0" : null} PM
                             </option> ) : (
                             <option value={null} disabled selected>Choose a time</option>
                             )

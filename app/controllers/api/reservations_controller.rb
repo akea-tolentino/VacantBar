@@ -34,6 +34,7 @@ class Api::ReservationsController < ApplicationController
     
     def update
         @reservation = Reservation.find(params[:id])
+        @reservation.num_guests = params[:num_guests]
         if @reservation.update(reservation_params)
             render :show
         else

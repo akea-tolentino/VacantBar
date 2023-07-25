@@ -12,14 +12,27 @@ export default function UserReservationsModal ({ user, changeModal }) {
     const [resId, setResId] = useState(null);
     let ampm;
 
+    const [submitForm, setSubmitForm] = useState(false);
+
     useEffect(() => {
         dispatch(fetchReservations(reservations))
-    }, [dispatch])
+    }, [dispatch, submitForm])
 
+    const changeForm = () => {
+        if (submitForm) {setSubmitForm(false)}
+        else {setSubmitForm(true)}
+        // setSubmitForm(true);
+        // setSubmitForm(false);
+    }
+    
+    const changeShowForm = () => {
+        if (showForm) {setShowForm(false)}
+        else {setShowForm(true)}
+    }
 
     const handleClick = (id) => {
-        setShowForm(true);
         setResId(id);
+        changeShowForm()
     }
 
     return (
@@ -42,7 +55,7 @@ export default function UserReservationsModal ({ user, changeModal }) {
                                 {new Date(reservation.time).getHours()}:{new Date(reservation.time).getMinutes()}
                             </time> */}
                             <time>
-                                {new Date(reservation.time).getHours()}
+                                {new Date(reservation.time).getHours() > 12 ? new Date(reservation.time).getHours() - 12 : new Date(reservation.time).getHours()}
                                 :
                                 {new Date(reservation.time).getMinutes()}
                                 {new Date(reservation.time).getMinutes() === 0 ? "0" : null}
@@ -56,7 +69,7 @@ export default function UserReservationsModal ({ user, changeModal }) {
                         </div>
                     </li>)}</ul>
                             {showForm && (
-                                <ReservationsForm reservationId={resId} sessionUser={user} />
+                                <ReservationsForm changeShowForm={changeShowForm} changeForm={changeForm} reservationId={resId} sessionUser={user} />
                             )}
                 </Modal>
 

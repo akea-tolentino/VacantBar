@@ -587,106 +587,106 @@ bar12.images.attach(io: URI.open(
     rating: 4
   )
 
-  Reservation.create!(
-    user_id: 1,
-    bar_id: 3,
-    num_guests: 11,
-    date: "Wed, 12 Jul 2023",
-    time: "Sat, 01 Jan 2000 18:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 1,
+  #   bar_id: 3,
+  #   num_guests: 11,
+  #   date: "Wed, 12 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 18:30:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 1,
-    bar_id: 8,
-    num_guests: 9,
-    date: "Fri, 14 Jul 2023",
-    time: "Sat, 01 Jan 2000 20:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 1,
+  #   bar_id: 8,
+  #   num_guests: 9,
+  #   date: "Fri, 14 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 20:30:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 2,
-    bar_id: 2,
-    num_guests: 4,
-    date: "Wed, 05 Jul 2023",
-    time: "Sat, 01 Jan 2000 17:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 2,
+  #   bar_id: 2,
+  #   num_guests: 4,
+  #   date: "Wed, 05 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 17:30:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 2,
-    bar_id: 5,
-    num_guests: 6,
-    date: "Wed, 19 Jul 2023",
-    time: "Sat, 01 Jan 2000 18:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 2,
+  #   bar_id: 5,
+  #   num_guests: 6,
+  #   date: "Wed, 19 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 18:30:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 3,
-    bar_id: 4,
-    num_guests: 2,
-    date: "Sat, 15 Jul 2023",
-    time: "Sat, 01 Jan 2000 18:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 3,
+  #   bar_id: 4,
+  #   num_guests: 2,
+  #   date: "Sat, 15 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 18:30:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 4,
-    bar_id: 2,
-    num_guests: 3,
-    date: "Tue, 11 Jul 2023",
-    time: "Sat, 01 Jan 2000 19:00:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 4,
+  #   bar_id: 2,
+  #   num_guests: 3,
+  #   date: "Tue, 11 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 19:00:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 5,
-    bar_id: 10,
-    num_guests: 11,
-    date: "Wed, 12 Jul 2023",
-    time: "Sat, 01 Jan 2000 18:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 5,
+  #   bar_id: 10,
+  #   num_guests: 11,
+  #   date: "Wed, 12 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 18:30:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 6,
-    bar_id: 12,
-    num_guests: 8,
-    date: "Wed, 05 Jul 2023",
-    time: "Sat, 01 Jan 2000 20:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 6,
+  #   bar_id: 12,
+  #   num_guests: 8,
+  #   date: "Wed, 05 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 20:30:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 4,
-    bar_id: 11,
-    num_guests: 1,
-    date: "Wed, 26 Jul 2023",
-    time: "Sat, 01 Jan 2000 19:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 4,
+  #   bar_id: 11,
+  #   num_guests: 1,
+  #   date: "Wed, 26 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 19:30:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 3,
-    bar_id: 9,
-    num_guests: 11,
-    date: "Wed, 19 Jul 2023",
-    time: "Sat, 01 Jan 2000 17:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 3,
+  #   bar_id: 9,
+  #   num_guests: 11,
+  #   date: "Wed, 19 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 17:30:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 2,
-    bar_id: 7,
-    num_guests: 4,
-    date: "Wed, 12 Jul 2023",
-    time: "Sat, 01 Jan 2000 18:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 2,
+  #   bar_id: 7,
+  #   num_guests: 4,
+  #   date: "Wed, 12 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 18:30:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 4,
-    bar_id: 5,
-    num_guests: 2,
-    date: "Wed, 19 Jul 2023",
-    time: "Sat, 01 Jan 2000 21:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 4,
+  #   bar_id: 5,
+  #   num_guests: 2,
+  #   date: "Wed, 19 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 21:30:00.000000000 UTC +00:00"
+  # )
 
-  Reservation.create!(
-    user_id: 5,
-    bar_id: 4,
-    num_guests: 4,
-    date: "Wed, 19 Jul 2023",
-    time: "Sat, 01 Jan 2000 22:30:00.000000000 UTC +00:00"
-  )
+  # Reservation.create!(
+  #   user_id: 5,
+  #   bar_id: 4,
+  #   num_guests: 4,
+  #   date: "Wed, 19 Jul 2023",
+  #   time: "Sat, 01 Jan 2000 22:30:00.000000000 UTC +00:00"
+  # )
