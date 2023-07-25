@@ -39,7 +39,6 @@ export default function ReservationsForm ({ changeShowForm, changeForm, reservat
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        debugger
         const local = new Date(`${date.getUTCDate()} ${month[date.getUTCMonth() + 1]} ${date.getUTCFullYear()} ${time}`);
     
         const newReservation = {
