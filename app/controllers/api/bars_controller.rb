@@ -12,13 +12,11 @@ class Api::BarsController < ApplicationController
 
     def show
         @bar = Bar.find(params[:id])
-        print :id
-        print params
         # if @bar
         #     render :show
         # else
             render json: {errors: ['Bar not found'] }
-        end
+        # end
     end
 
     private
