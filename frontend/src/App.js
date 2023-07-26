@@ -14,10 +14,10 @@ function App() {
         <Switch>
         <Route exact path='/'
             component={BarIndex} />
-        <Wrapper apiKey={apiKey}>
+        {/* <Wrapper apiKey={apiKey}> */}
           <Route path={`/bars/:barId`}
             component={BarShow} />
-        </Wrapper>
+        {/* </Wrapper> */}
         </Switch>
     </>
   );

@@ -7,14 +7,11 @@ import ReviewItem from "./ReviewItem";
 export default function ReviewsIndex ({ bar, currentUser }) {
     const dispatch = useDispatch();
     const reviews = useSelector(getReviewsForBar(bar.id));
-    const [changeReview, setChangeReview] = useState(false);
+    const [changeReview, setChangeReview] = useState(0);
 
     const updateReviews = () => {
-        if (changeReview) {
-            setChangeReview(false)
-        } else {
-            setChangeReview(true)
-        }
+        const num = changeReview;
+        setChangeReview(num + 1);
     }
 
     useEffect(() => {

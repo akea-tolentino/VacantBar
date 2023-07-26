@@ -26,7 +26,7 @@ export default function ReviewsForm ({ reviewId, barId, setShowModal, updateRevi
     const [rating, setRating] = useState(review.rating);
     const [body, setBody] = useState(review.body);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const newReview = {
@@ -37,13 +37,13 @@ export default function ReviewsForm ({ reviewId, barId, setShowModal, updateRevi
         }
 
         if (formType === 'Create Review') {
-            dispatch(createReview(newReview))
+            await dispatch(createReview(newReview))
         } else {
-            dispatch(updateReview(newReview));
+            await dispatch(updateReview(newReview));
         }
 
         if (formType === 'Edit Review') {
-            updateReviews()
+            updateReviews();
         }
         setShowModal(false);
     }

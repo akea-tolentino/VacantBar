@@ -49,7 +49,6 @@ export const fetchReviews = () => async (dispatch) => {
 
     if (res.ok) {
         const reviews = await res.json();
-        debugger
         dispatch(receiveReviews(reviews));
     }
 }
@@ -74,7 +73,6 @@ export const updateReview = (review) => async (dispatch) => {
 
     if (res.ok) {
         const newReview = await res.json();
-        debugger
         dispatch(receiveReview(newReview));
     }
 }
@@ -91,7 +89,6 @@ export const deleteReview = (reviewId) => async (dispatch) => {
 
 export default function reviewsReducer (state = {}, action) {
     let newState;
-    debugger
     switch (action.type) {
         case RECEIVE_REVIEWS:
             newState = {...state}

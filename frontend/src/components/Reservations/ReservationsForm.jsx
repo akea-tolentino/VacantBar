@@ -37,7 +37,7 @@ export default function ReservationsForm ({ changeShowForm, changeForm, reservat
     const [date, setDate] = useState(new Date(reservation.date))
     const [time, setTime] = useState(reservation.time)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const local = new Date(`${date.getUTCDate()} ${month[date.getUTCMonth() + 1]} ${date.getUTCFullYear()} ${time}`);
     
@@ -50,9 +50,9 @@ export default function ReservationsForm ({ changeShowForm, changeForm, reservat
         }
         
         if (newReservation !== undefined && formType === 'Make a Reservation') {
-            dispatch(createReservation(newReservation));
+            await dispatch(createReservation(newReservation));
         } else {
-            dispatch(updateReservation(newReservation));
+            await dispatch(updateReservation(newReservation));
         }
 
         if (formType === 'Edit Reservation')
