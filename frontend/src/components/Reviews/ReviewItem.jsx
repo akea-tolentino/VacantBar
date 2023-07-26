@@ -9,6 +9,7 @@ export default function ReviewItem ({ currentUser, review }) {
     
     return (
         <li className="review-item">
+            <div>{review.authorUsername}</div> 
             <div className='review-rating'>
                 <RiStarSFill className={review.rating > 0 ? 'filled' : 'empty'}/>
                 <RiStarSFill className={review.rating > 1 ? 'filled' : 'empty'}/>
@@ -21,12 +22,8 @@ export default function ReviewItem ({ currentUser, review }) {
                 <ul className='review-buttons-container'>
                     <ReviewsFormModal reviewId={review.id} barId={review.barId} />
                     <button className='delete-review' onClick={()=> dispatch(deleteReview(review.id))}>Delete</button>
-                </ul> :
-                // <div>User: {review.authorId}</div> 
-                <div>{review.authorUsername}</div> 
-
+                </ul> : null
             }
-            {/* <div>{review.updatedAt}</div> */}
         </li>
     )
 }

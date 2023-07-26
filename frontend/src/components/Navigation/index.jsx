@@ -45,12 +45,12 @@ function Navigation() {
             <LuSearch className='search'/>
           </li> */}
           <li className="github">
-            <a href="https://github.com/akea-tolentino/VacantBar.git">
+            <a href="https://github.com/akea-tolentino/VacantBar.git" target={'_blank'}>
                 <BsGithub />
             </a>
           </li>
           <li className="linkedin">
-            <a href="https://www.linkedin.com/in/jamesbradley-tolentino-813555229/">
+            <a href="https://www.linkedin.com/in/jamesbradley-tolentino-813555229/" target={'_blank'}>
                 <BsLinkedin />
             </a>
           </li>

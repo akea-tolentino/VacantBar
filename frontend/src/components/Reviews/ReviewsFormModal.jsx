@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from "../../context/Modal";
 import ReviewsForm from './ReviewsForm';
 
-export default function ReviewsFormModal ({ barId, reviewId }) {
+export default function ReviewsFormModal ({ updateReviews, barId, reviewId }) {
     const [showModal, setShowModal] = useState(false);
     const formType = ( reviewId ? 'Edit' : 'Leave a Review');
 
