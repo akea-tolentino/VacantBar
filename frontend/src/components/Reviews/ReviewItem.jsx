@@ -4,7 +4,7 @@ import ReviewsFormModal from './ReviewsFormModal';
 import { deleteReview } from '../../store/reviews';
 import { useDispatch } from 'react-redux';
 
-export default function ReviewItem ({ currentUser, review }) {
+export default function ReviewItem ({ currentUser, review, updateReviews }) {
     const dispatch = useDispatch();
     
     return (
@@ -20,7 +20,7 @@ export default function ReviewItem ({ currentUser, review }) {
             <div>{review.body}</div>
             {currentUser && currentUser.id === review.authorId ?
                 <ul className='review-buttons-container'>
-                    <ReviewsFormModal reviewId={review.id} barId={review.barId} />
+                    <ReviewsFormModal reviewId={review.id} barId={review.barId} updateReviews={updateReviews} />
                     <button className='delete-review' onClick={()=> dispatch(deleteReview(review.id))}>Delete</button>
                 </ul> : null
             }

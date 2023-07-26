@@ -4,7 +4,7 @@ import { createReview, fetchReview, getReview, updateReview } from "../../store/
 import './Reviews.css';
 
 
-export default function ReviewsForm ({ reviewId, barId, setShowModal }) {
+export default function ReviewsForm ({ reviewId, barId, setShowModal, updateReviews }) {
     const dispatch = useDispatch();
     let review = useSelector(getReview(reviewId))
     const formType = (reviewId !== undefined ? 'Edit Review' : 'Create Review')
@@ -40,6 +40,10 @@ export default function ReviewsForm ({ reviewId, barId, setShowModal }) {
             dispatch(createReview(newReview))
         } else {
             dispatch(updateReview(newReview));
+        }
+
+        if (formType === 'Edit Review') {
+            updateReviews()
         }
         setShowModal(false);
     }

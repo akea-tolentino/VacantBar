@@ -7,23 +7,23 @@ import ReviewItem from "./ReviewItem";
 export default function ReviewsIndex ({ bar, currentUser }) {
     const dispatch = useDispatch();
     const reviews = useSelector(getReviewsForBar(bar.id));
-    const [reviewChanged, setReviewChanged] = useState(false);
+    const [changeReview, setChangeReview] = useState(false);
 
-     const updateReviews = () => {
-        if (reviewChanged) {
-            setReviewChanged(false)
+    const updateReviews = () => {
+        if (changeReview) {
+            setChangeReview(false)
         } else {
-            setReviewChanged(true)
+            setChangeReview(true)
         }
     }
 
     useEffect(() => {
         dispatch(fetchReviews(reviews))
-    }, [reviewChanged])
+    }, [changeReview])
 
     return (
         <ul>
-            {reviews.map(review => <ReviewItem updateReviews={updateReviews} currentUser={currentUser} review={review} key={review.id} />)}
+            {reviews.map(review => <ReviewItem currentUser={currentUser} review={review} key={review.id} updateReviews={updateReviews} />)}
         </ul>
     )
 }

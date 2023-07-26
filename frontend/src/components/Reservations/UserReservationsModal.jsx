@@ -21,8 +21,6 @@ export default function UserReservationsModal ({ user, changeModal }) {
     const changeForm = () => {
         if (submitForm) {setSubmitForm(false)}
         else {setSubmitForm(true)}
-        // setSubmitForm(true);
-        // setSubmitForm(false);
     }
     
     const changeShowForm = () => {
@@ -51,9 +49,6 @@ export default function UserReservationsModal ({ user, changeModal }) {
                                 {new Date(reservation.date).getFullYear()}
                             </time>
                             <br/>
-                            {/* <time>
-                                {new Date(reservation.time).getHours()}:{new Date(reservation.time).getMinutes()}
-                            </time> */}
                             <time>
                                 {new Date(reservation.time).getHours() > 12 ? new Date(reservation.time).getHours() - 12 : new Date(reservation.time).getHours()}
                                 :

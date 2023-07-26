@@ -1,7 +1,7 @@
 reviews = @reviews.includes(:author)
 
 reviews.each do |review|
-    json.review do
+    json.set! review.id do
         json.extract! review, 
         :id, 
         :rating, 

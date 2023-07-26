@@ -54,17 +54,22 @@ export default function ReservationsForm ({ changeShowForm, changeForm, reservat
         } else {
             dispatch(updateReservation(newReservation));
         }
-        // setShowForm(false);
+
         if (formType === 'Edit Reservation')
         {
-            changeShowForm()
             changeForm();
+            changeShowForm();
+        } else {
+            setShowForm(false);
         }
     }
 
 
     return (
         <div>
+            {!showForm && (
+                <p>Reservation created successfully!</p>
+            )}
             {showForm && (
             <form className="reservations-form" onSubmit={handleSubmit}>
                 <h2>{formType}</h2>
