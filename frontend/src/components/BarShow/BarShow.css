@@ -84,6 +84,8 @@
     display: flex;
     flex-direction: column;
     padding: 5px;
+    overflow-y: scroll;
+    margin-bottom: 1vh;
 }
 
 .reviews-container > button:hover {
@@ -98,6 +100,8 @@
     justify-content: left;
     border: none;
     cursor: pointer;
+    margin-bottom: 2vh;
+    margin-top: 1vh;
 }
 
 .reviews-container > p {
