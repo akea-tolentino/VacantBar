@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createReview, fetchReview, getReview, updateReview } from "../../store/reviews";
+import { createReview, fetchReview, fetchReviews, getReview, updateReview } from "../../store/reviews";
 import './Reviews.css';
 
 
@@ -44,6 +44,8 @@ export default function ReviewsForm ({ reviewId, barId, setShowModal, updateRevi
 
         if (formType === 'Edit Review') {
             updateReviews();
+        } else {
+            await dispatch(fetchReviews(barId))
         }
         setShowModal(false);
     }
