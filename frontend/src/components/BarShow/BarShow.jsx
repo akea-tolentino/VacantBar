@@ -19,7 +19,7 @@ export default function BarShow () {
     const [geolocation, setGeolocation] = useState(null);
     const geocoder = new window.google.maps.Geocoder();
     const sessionUser = useSelector(state => state.session.user);
-
+    console.log(bar, "bar");
     useEffect(() => {
         dispatch(fetchBar(barId))
     }, [dispatch, barId])
