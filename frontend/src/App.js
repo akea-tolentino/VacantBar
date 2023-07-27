@@ -16,7 +16,6 @@ function App() {
             component={BarIndex} />
         <Wrapper apiKey={apiKey}>
           <Route path="/bars/:barId">
-            {/* component={BarShow} */}
             <BarShow />
           </Route>
           {/* <Route path="/bars/:barId"
