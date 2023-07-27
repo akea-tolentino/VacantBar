@@ -128,7 +128,7 @@
     justify-content: space-around;
     align-items: center;
     position: sticky;
-    /* z-index: 100; */
+    z-index: 100;
 }
 
 .location-container {
