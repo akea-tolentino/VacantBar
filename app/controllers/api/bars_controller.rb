@@ -2,7 +2,12 @@ class Api::BarsController < ApplicationController
     wrap_parameters include: Bar.attribute_names
 
     def index
-        @bars = Bar.all
+        # if params
+            @bars = Bar.all
+        # else
+            # @bars = Bar.where(name: params).or(Bar.where(address: [params])).or(Bar.where(type: params))
+        # end
+    
         if @bars
             render :index
         else
