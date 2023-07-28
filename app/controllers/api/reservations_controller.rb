@@ -28,7 +28,8 @@ class Api::ReservationsController < ApplicationController
         if @reservation.save
             render :show
         else
-            render json: {errors: ['Reservation failed to create']}
+            render json: {errors: @reservation.errors.full_messages}
+            # render json: {errors: ['Reservation failed to create']}
         end
     end
     
