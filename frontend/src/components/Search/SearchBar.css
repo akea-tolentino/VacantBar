@@ -1,7 +1,6 @@
 .search-container {
     display: flex;
     height: 30vh;
-    /* background-color: rgb(15, 28, 83); */
     background-image: linear-gradient(to left, rgba(17, 40, 102, 0.577), rgb(15, 28, 83));
     text-align: center;
     justify-content: center;
@@ -18,7 +17,7 @@ h1 {
 .query-form {
     display: flex;
     justify-content: space-evenly;
-    width: 75vw;
+    width: 40vw;
 }
 
 #query input:focus {

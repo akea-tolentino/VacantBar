@@ -5,6 +5,7 @@ import BarShow from "./components/BarShow/BarShow";
 import Navigation from "./components/Navigation";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import Home from "./components/Home/Home";
+import SearchIndex from "./components/Search/SearchIndex";
 
 const apiKey = process.env.REACT_APP_GMAPS_API_SERVER_KEY;
 
@@ -13,15 +14,19 @@ function App() {
     <>
       <Navigation />
         <Switch>
-        <Route exact path='/'
-            component={Home} />
-        <Wrapper apiKey={apiKey}>
-          <Route path="/bars/:barId">
-            <BarShow />
+          <Route exact path='/'>
+              <Home />
           </Route>
-          {/* <Route path="/bars/:barId"
-            component={BarShow} /> */}
-        </Wrapper>
+          <Wrapper apiKey={apiKey}>
+            <Route path="/bars/:barId">
+              <BarShow />
+            </Route>
+            {/* <Route path="/bars/:barId"
+              component={BarShow} /> */}
+          </Wrapper>
+          <Route exact path="/search/bars">
+            <SearchIndex />
+          </Route>
         </Switch>
     </>
   );
