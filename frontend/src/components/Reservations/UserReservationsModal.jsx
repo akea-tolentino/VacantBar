@@ -36,7 +36,8 @@ export default function UserReservationsModal ({ user, changeModal }) {
     return (
         <>
                 <Modal onClose={changeModal}>
-                    <h1 className='reservation-list-header'>{user.username}'s reservations</h1>
+                    <h1 className='reservation-list-header'><span id='strong'>{user.username}
+                    </span>'s reservations</h1>
                     <ul>{reservations.map( reservation => <li key={reservation.id} className="reservation-list">
                         <p>{reservation.barName}</p>
                         <p>Party Size: {reservation.numGuests}</p>

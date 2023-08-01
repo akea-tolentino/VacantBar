@@ -28,4 +28,5 @@
     max-height: 85%;
     padding: 3% 2%;
     z-index: 104;
+    overflow-y: scroll;
   }

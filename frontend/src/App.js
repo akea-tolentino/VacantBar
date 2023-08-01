@@ -24,7 +24,7 @@ function App() {
             {/* <Route path="/bars/:barId"
               component={BarShow} /> */}
           </Wrapper>
-          <Route exact path="/search/bars">
+          <Route path="/search/bars">
             <SearchIndex />
           </Route>
         </Switch>

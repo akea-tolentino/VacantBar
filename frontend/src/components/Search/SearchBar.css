@@ -8,7 +8,7 @@
     flex-direction: column;
 }
 
-h1 {
+.search-container h1 {
     color:  white;
     font-size: 36px;
     margin-bottom: 2vh;
