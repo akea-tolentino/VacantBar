@@ -13,7 +13,6 @@
     font-size: 14px;
     font-weight: 500;
     padding: 2vh 0 2vh 0;
-    /* padding: 10px 0 5px 0; */
 }
 
 .party-size {
@@ -91,4 +90,10 @@
 
 .reservation-directive > button:hover {
     background-color: #b31520;
+}
+
+.reservations-form p.message {
+    font-size: 10px;
+    text-align: center;
+    color: #da3743
 }

@@ -36,9 +36,15 @@ export default function ReservationsForm ({ changeShowForm, changeForm, reservat
     const [numGuests, setNumGuests] = useState(reservation.numGuests)
     const [date, setDate] = useState(new Date(reservation.date))
     const [time, setTime] = useState(reservation.time)
+    const [errors, setErrors] = useState([]);
+    const [submitted, setSubmitted] = useState(false);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrors([]);
+        setSubmitted(false);
+
         const local = new Date(`${date.getUTCDate()} ${month[date.getUTCMonth() + 1]} ${date.getUTCFullYear()} ${time}`);
     
         const newReservation = {
@@ -50,29 +56,33 @@ export default function ReservationsForm ({ changeShowForm, changeForm, reservat
         }
         
         if (newReservation !== undefined && formType === 'Make a Reservation') {
-            await dispatch(createReservation(newReservation));
+            const results = await dispatch(createReservation(newReservation))
+            if (results.errors) {
+                setErrors(results.errors);
+                setSubmitted(true);
+            } else {
+                setSubmitted(true);
+            }
         } else {
-            await dispatch(updateReservation(newReservation));
-        }
-
-        if (formType === 'Edit Reservation')
-        {
-            changeForm();
-            changeShowForm();
-        } else {
-            setShowForm(false);
+            const results = await dispatch(updateReservation(newReservation))
+            if (results.errors) {
+                setErrors(results.errors);
+                setSubmitted(true);
+            } else {
+                setSubmitted(true);
+                changeForm();
+                changeShowForm();
+            }
         }
     }
 
 
     return (
         <div>
-            {!showForm && (
-                <p>Reservation created successfully!</p>
-            )}
             {showForm && (
             <form className="reservations-form" onSubmit={handleSubmit}>
                 <h2>{formType}</h2>
+                {submitted === true ? (errors.length > 0 ? <p className='message'>{errors}</p> : <p className='message'>Reservation created successfully!</p>): null}
                 <div className='party-size'>
                     <label>Party Size</label>
                     <select name="party-size" onChange={(e)=> setNumGuests(e.target.value)}>
