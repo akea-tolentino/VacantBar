@@ -2,10 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import SearchIndexItem from "./SearchIndexItem";
 import { getBars, fetchBars } from "../../store/bars";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 
-export default function SearchIndex ({ query }) {
+export default function SearchIndex () {
     const dispatch = useDispatch();
+    const { query } = useParams();
     const bars = useSelector(getBars);
 
     useEffect(() => {

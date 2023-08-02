@@ -14,6 +14,8 @@ export default function ReservationsForm ({ changeShowForm, changeForm, reservat
     const [showForm, setShowForm] = useState(true);
     const {barId} = useParams();
     const month = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'}
+    const [errors, setErrors] = useState([]);
+    const [submitted, setSubmitted] = useState(false);
 
     if (formType === 'Make a Reservation') {
         let newResTime = new Date();
@@ -27,18 +29,15 @@ export default function ReservationsForm ({ changeShowForm, changeForm, reservat
         }
     }
 
+    const [numGuests, setNumGuests] = useState(reservation.numGuests)
+    const [date, setDate] = useState(new Date(reservation.date))
+    const [time, setTime] = useState(reservation.time)
+
     useEffect(() => {
         if (formType === 'Edit Reservation') {
             dispatch(fetchReservation(reservationId))
         }
     }, [reservationId, dispatch])
-
-    const [numGuests, setNumGuests] = useState(reservation.numGuests)
-    const [date, setDate] = useState(new Date(reservation.date))
-    const [time, setTime] = useState(reservation.time)
-    const [errors, setErrors] = useState([]);
-    const [submitted, setSubmitted] = useState(false);
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -75,7 +74,6 @@ export default function ReservationsForm ({ changeShowForm, changeForm, reservat
             }
         }
     }
-
 
     return (
         <div>

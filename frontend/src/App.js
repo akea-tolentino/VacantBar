@@ -18,15 +18,15 @@ function App() {
               <Home />
           </Route>
           <Wrapper apiKey={apiKey}>
-            <Route path="/bars/:barId">
+          <Route path="/bars/search/:query">
+            <SearchIndex />
+          </Route>
+            <Route exact path="/bars/:barId">
               <BarShow />
             </Route>
             {/* <Route path="/bars/:barId"
               component={BarShow} /> */}
           </Wrapper>
-          <Route path="/search/bars">
-            <SearchIndex />
-          </Route>
         </Switch>
     </>
   );
