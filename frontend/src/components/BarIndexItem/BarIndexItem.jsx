@@ -47,7 +47,6 @@ export default function BarIndexItem ({ bar }) {
                         <li>|</li> 
                         <li>{bar.barType}</li>
                         <li>|</li> 
-                        {/* <li>{bar.price}</li> */}
                         <li>{printDollar(bar.price)}</li>
                     </ul>
                 </section>
