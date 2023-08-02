@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import SearchIndexItem from "./SearchIndexItem";
 import { getBars, fetchBars } from "../../store/bars";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
+import './Search.css';
 
 
 export default function SearchIndex () {
@@ -15,13 +16,15 @@ export default function SearchIndex () {
     }, [dispatch])
 
     return (
-        <div>
-            <h1>Results for "{query}"</h1>
-            <ul className="search-index-container">
-                {bars.filter(bar => bar.barType === query).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
-                {bars.filter(bar => bar.name === query).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
-                {bars.filter(bar => bar.address.split(",")[1] === query).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
-            </ul>
+        <div className="search-index-page">
+            <h1 className="query-header">Results for "{query}"</h1>
+            <section className="search-index-wrapper">
+                <ul className="search-index-container">
+                    {bars.filter(bar => bar.barType.toLowerCase() === query.toLowerCase()).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
+                    {bars.filter(bar => bar.name.toLowerCase() === query.toLowerCase()).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
+                    {bars.filter(bar => bar.address.split(",")[1].toLowerCase() === query.toLowerCase()).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
+                </ul>
+            </section>
         </div>
     )
 }
