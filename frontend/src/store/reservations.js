@@ -75,10 +75,9 @@ export const updateReservation = (reservation) => async (dispatch) => {
         body: JSON.stringify(reservation)
     })
 
-    if (res.ok) {
-        const newReservation = await res.json();
-        dispatch(receiveReservation(newReservation));
-    }
+    const response = res.json();
+    dispatch(receiveReservation(response));
+    return response;
 }
 
 export const deleteReservation = (reservationId) => async (dispatch) => {

@@ -38,7 +38,7 @@ class Api::ReservationsController < ApplicationController
         if @reservation.update(reservation_params)
             render :show
         else
-            render json: {errors: ['Update not saved']}
+            render json: {errors: @reservation.errors.full_messages}
         end
     end
 
