@@ -20,9 +20,9 @@ export default function SearchIndex () {
             <h1 className="query-header">Results for "{query}"</h1>
             <section className="search-index-wrapper">
                 <ul className="search-index-container">
-                    {bars.filter(bar => bar.barType.toLowerCase() === query.toLowerCase()).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
-                    {bars.filter(bar => bar.name.toLowerCase() === query.toLowerCase()).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
-                    {bars.filter(bar => bar.address.split(",")[1].toLowerCase() === query.toLowerCase()).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
+                    {bars.filter(bar => bar.barType.toLowerCase().includes(query.toLowerCase())).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
+                    {bars.filter(bar => bar.name.toLowerCase().includes(query.toLowerCase())).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
+                    {bars.filter(bar => bar.address.split(",")[1].toLowerCase().includes(query.toLowerCase())).map(bar => <SearchIndexItem key={bar.id} bar={bar}/>)}
                 </ul>
             </section>
         </div>
