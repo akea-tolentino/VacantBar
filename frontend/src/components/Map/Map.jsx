@@ -12,7 +12,6 @@ export default function Map ({ geolocation }) {
     const [center, setCenter] = useState(null);
     
     useEffect(() => {
-        console.log("map")
         if (geolocation) {
             setCenter(geolocation);
         }
