@@ -24,6 +24,47 @@ Logged-in user will be able to:
 
 VacantBar is built using Ruby on Rails for the backend with PostgreSQL as the database. The frontend is comprised of React.js and Redux to create a dynamic single page web application that does not require refreshing the page to render changes made to the database.
 
+## Code Highlights
+1. JBuilder
+
+```ruby
+json.bar do
+    json.extract! @bar, 
+    :id, 
+    :name, 
+    :description, 
+    :bar_type, 
+    :address, 
+    :price, 
+    :capacity
+
+    json.imageUrls @bar.images.map { |file| file.url }
+    reviews = @bar.reviews_left
+    average_rating = reviews.average(:rating) if reviews.any?
+    num_reviews = reviews.count if reviews.any?
+
+    json.averageRating average_rating
+    json.numReviews num_reviews
+end
+```
+
+2. UseEffect and Google Geocoder API
+
+```javascript
+useEffect(() => {
+        const address = bar.address;
+        geocoder.geocode({ address: address }, (results, status) => {
+        if (status === window.google.maps.GeocoderStatus.OK) {
+            const location = results[0].geometry.location;
+            setGeolocation({
+                lat: location.lat(),
+                lng: location.lng()
+             });
+        }});
+    }, [bar.address]);
+```
+
+
 ## Future Bonus Features
 - Tags to assign to bars, allowing them to be filtered by categories
 - Directions provided by Google Maps
