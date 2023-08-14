@@ -24,6 +24,24 @@ Logged-in user will be able to:
 
 VacantBar is built using Ruby on Rails for the backend with PostgreSQL as the database. The frontend is comprised of React.js and Redux to create a dynamic single page web application that does not require refreshing the page to see changes to the database.
 
+## Features
+
+### User Auth
+
+![User Auth](./sample/auth.png)
+
+### Search Bar
+
+![Search Bar](./sample/searchbar.png)
+
+### Reservations
+
+![Reservations](./sample/reservation.png)
+
+### Reviews
+
+![Reviews](./sample/review.png)
+
 ## Future Bonus Features
 - Tags to assign bars, allowing them to be filtered by categories
 - Directions provided by Google Maps
