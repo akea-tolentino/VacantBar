@@ -50,7 +50,7 @@ function Navigation() {
             </a>
           </li>
           <li className="linkedin">
-            <a href="https://www.linkedin.com/in/jamesbradley-tolentino-813555229/" target={'_blank'}>
+            <a href="https://www.linkedin.com/in/jamesbradley-akea-tolentino-813555229/" target={'_blank'}>
                 <BsLinkedin />
             </a>
           </li>
